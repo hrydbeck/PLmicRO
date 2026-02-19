@@ -4,11 +4,11 @@ title: Home
 permalink: /
 ---
 
-# Precision Micro Journal Club
+# PLmicRO Journal Club
 
-**AI & Machine Learning in Clinical Microbiology**
+**Precision Medicine & Microbiology — with a bioinformatics twist**
 
-Welcome! We're a reading group exploring how machine learning and AI are transforming clinical microbiology — from pathogen identification and AMR prediction to genomic surveillance.
+Welcome! We're a reading group at the intersection of precision medicine, clinical microbiology, and bioinformatics. We read and discuss papers on analytical methods, computational approaches, and translational science that shape modern microbiology.
 
 ---
 
@@ -21,14 +21,14 @@ Welcome! We're a reading group exploring how machine learning and AI are transfo
 
 ---
 
-## Current Focus Areas
+## Topics We Cover
 
-- Foundations of ML for biologists
-- Benchmarking & evaluation of AI models
-- MALDI-TOF and ML for microbial identification
-- Deep learning in genomics
-- Genomic surveillance & taxonomic profiling
-- Precision medicine in infectious diseases
+- **Precision medicine in infectious diseases** — diagnostics, treatment stratification, host–pathogen interactions
+- **Clinical microbiology methods** — MALDI-TOF, WGS-based typing, AST, point-of-care diagnostics
+- **Genomic epidemiology & surveillance** — outbreak detection, taxonomic profiling, transmission tracking
+- **Bioinformatics & analytical methods** — pipelines, benchmarking, reproducibility, statistical frameworks
+- **AI & machine learning** — when and how computational models add value in microbiology
+- **Metagenomics & microbiome** — community profiling, resistome analysis, clinical applications
 
 ---
 
@@ -39,4 +39,3 @@ Welcome! We're a reading group exploring how machine learning and AI are transfo
 | 📖 [Reading List](reading-list) | Papers organized by session |
 | 💡 [Suggest a Paper](suggest) | Propose new papers for the group |
 | 🗳️ [Vote on Suggestions](https://github.com/hrydbeck/PLmicRO/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22) | Browse & upvote open suggestions |
-

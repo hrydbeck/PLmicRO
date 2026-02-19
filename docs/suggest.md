@@ -18,7 +18,6 @@ We want papers that feel relevant to the whole group — that's why **anyone can
 
 👉 [**Suggest a Paper →**](https://github.com/hrydbeck/PLmicRO/issues/new?template=paper-suggestion.md&title=%5BPaper+Suggestion%5D+TITLE+HERE)
 
-
 ---
 
 ## How to Vote
@@ -33,10 +32,25 @@ We want papers that feel relevant to the whole group — that's why **anyone can
 
 | ✅ Great suggestions | ❌ Less ideal |
 |---|---|
-| Relevant to precision medicine or microbiology | Too niche for most members |
+| Relevant to precision medicine, microbiology, or bioinformatics | Too niche for most members |
+| Analytical or methodological focus the group can learn from | Purely clinical with no analytical angle |
 | Published in a peer-reviewed journal | Preprints without review (unless exceptional) |
 | Accessible writing level for the group | Requires deep domain expertise to follow |
-| Introduces a method or concept we can discuss | Purely incremental results |
+| Introduces a method, pipeline, or concept we can discuss | Purely incremental results |
+
+---
+
+## Topic Areas
+
+Suggestions can span any of these areas (and more):
+
+- Precision medicine in infectious diseases
+- Clinical microbiology methods & diagnostics
+- Genomic epidemiology & surveillance
+- Bioinformatics pipelines & analytical methods
+- AI & machine learning in microbiology
+- Metagenomics & microbiome analysis
+- Antimicrobial resistance (AMR)
 
 ---
 

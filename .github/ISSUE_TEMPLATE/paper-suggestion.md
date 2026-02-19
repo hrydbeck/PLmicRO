@@ -28,22 +28,23 @@ assignees: ""
 ## Why This Paper?
 
 <!-- In 2-3 sentences, explain why this paper is relevant to the group. Consider:
-- Does it introduce a useful method or concept?
-- Is it relevant to precision medicine or clinical microbiology?
+- Does it introduce a useful method, pipeline, or concept?
+- Is it relevant to precision medicine, microbiology, or bioinformatics?
 - Will it spark an interesting discussion?
 -->
 
 ---
 
-## Suggested Session / Topic Area
+## Suggested Topic Area
 
-<!-- Optional: which session or topic area does this fit? -->
-- [ ] ML fundamentals
-- [ ] Benchmarking & evaluation
-- [ ] Clinical microbiology applications
-- [ ] MALDI-TOF / diagnostics
-- [ ] Deep learning / genomics
-- [ ] Genomic surveillance
+<!-- Optional: which topic area does this fit? -->
+- [ ] Precision medicine in infectious diseases
+- [ ] Clinical microbiology methods & diagnostics
+- [ ] Genomic epidemiology & surveillance
+- [ ] Bioinformatics pipelines & analytical methods
+- [ ] AI & machine learning
+- [ ] Metagenomics & microbiome
+- [ ] Antimicrobial resistance (AMR)
 - [ ] Other: ___
 
 ---

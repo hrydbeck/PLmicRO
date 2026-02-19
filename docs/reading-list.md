@@ -6,11 +6,13 @@ permalink: /reading-list/
 
 # Reading List
 
-Six sessions covering AI and machine learning in clinical microbiology, from foundational concepts to applied genomic surveillance.
+Our first series focuses on AI and machine learning in clinical microbiology — one of many topic areas we plan to explore. Future sessions will cover broader precision medicine, genomic epidemiology, and bioinformatics methods.
 
 ---
 
-## Session 1 — Intro to ML for Biologists
+## Current Series: AI & ML in Clinical Microbiology
+
+### Session 1 — Intro to ML for Biologists
 
 | Paper | Journal | Year |
 |-------|---------|------|
@@ -20,7 +22,7 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 
 ---
 
-## Session 2 — Benchmarking & Comparing AI Models
+### Session 2 — Benchmarking & Comparing AI Models
 
 | Paper | Journal | Year |
 |-------|---------|------|
@@ -30,7 +32,7 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 
 ---
 
-## Session 3 — AI in Clinical Microbiology (Reviews)
+### Session 3 — AI in Clinical Microbiology (Reviews)
 
 | Paper | Journal | Year |
 |-------|---------|------|
@@ -41,7 +43,7 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 
 ---
 
-## Session 4 — MALDI-TOF + ML
+### Session 4 — MALDI-TOF + ML
 
 | Paper | Journal | Year |
 |-------|---------|------|
@@ -51,7 +53,7 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 
 ---
 
-## Session 5 — Deep Learning in Genomics
+### Session 5 — Deep Learning in Genomics
 
 | Paper | Journal | Year |
 |-------|---------|------|
@@ -62,7 +64,7 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 
 ---
 
-## Session 6 — Genomic Surveillance & Taxonomic Profiling
+### Session 6 — Genomic Surveillance & Taxonomic Profiling
 
 | Paper | Journal | Year |
 |-------|---------|------|
@@ -84,4 +86,4 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 
 ---
 
-*Have a paper to suggest? Head to [Suggest a Paper](../suggest).*
+*Have a paper to suggest for a future session or series? Head to [Suggest a Paper](../suggest).*
