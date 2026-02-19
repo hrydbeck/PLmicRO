@@ -6,47 +6,44 @@ labels: paper suggestion
 assignees: ""
 ---
 
-## Paper Details
+## Paper
 
-**Title:**
-<!-- Full title of the paper -->
+**Title & authors:**
 
-**Authors:**
-<!-- e.g., Smith et al. -->
 
-**Journal:**
-<!-- e.g., Nature Reviews Genetics -->
+**Link:** <!-- DOI, PubMed, or URL — just paste it -->
 
-**Year:**
-<!-- e.g., 2024 -->
 
-**DOI / Link:**
-<!-- e.g., https://doi.org/10.1234/... -->
+**Why read this?** <!-- One or two sentences is plenty -->
+
 
 ---
 
-## Why This Paper?
+## Reading Guide (optional)
 
-<!-- In 2-3 sentences, explain why this paper is relevant to the group. Consider:
-- Does it introduce a useful method, pipeline, or concept?
-- Is it relevant to precision medicine, microbiology, or bioinformatics?
-- Will it spark an interesting discussion?
+<!-- If you've read the paper already, help others decide by adding a short reading guide.
+This is entirely optional — even just a few bullet points help.
+
+Ideas for what to include:
+- What sections to focus on
+- Key figures or tables worth studying
+- A few discussion questions
+- How it connects to other papers we've read
 -->
 
 ---
 
-## Suggested Topic Area
+## Topic Area
 
-<!-- Optional: which topic area does this fit? -->
-- [ ] Precision medicine in infectious diseases
-- [ ] Clinical microbiology methods & diagnostics
+<!-- Tick any that apply -->
+- [ ] Precision medicine
+- [ ] Clinical microbiology
 - [ ] Genomic epidemiology & surveillance
-- [ ] Bioinformatics pipelines & analytical methods
+- [ ] Bioinformatics & analytical methods
 - [ ] AI & machine learning
 - [ ] Metagenomics & microbiome
-- [ ] Antimicrobial resistance (AMR)
-- [ ] Other: ___
+- [ ] AMR
 
 ---
 
-> **Voting:** Group members — add a 👍 reaction to this issue if you'd like to read this paper!
+> 👍 **Vote** by adding a reaction to this issue!
