@@ -16,15 +16,14 @@ We want papers that feel relevant to the whole group — that's why **anyone can
 2. Fill in the paper details (title, authors, journal, year, and a sentence on why it's relevant).
 3. Your suggestion appears as an open Issue for the group to see.
 
-👉 [**Suggest a Paper →**](https://github.com/OWNER/precisionmicro-journalclub/issues/new?template=paper-suggestion.md&title=%5BPaper+Suggestion%5D+TITLE+HERE)
+👉 [**Suggest a Paper →**](https://github.com/hrydbeck/PLmicRO/issues/new?template=paper-suggestion.md&title=%5BPaper+Suggestion%5D+TITLE+HERE)
 
-> Replace `OWNER` with your GitHub username or organization.
 
 ---
 
 ## How to Vote
 
-- Browse the [open paper suggestions](https://github.com/OWNER/precisionmicro-journalclub/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22).
+- Browse the [open paper suggestions](https://github.com/hrydbeck/PLmicRO/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22).
 - **Add a 👍 reaction** to any paper you'd like us to read.
 - Papers with the most 👍 get added to the reading list.
 

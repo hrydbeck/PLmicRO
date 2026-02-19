@@ -38,6 +38,5 @@ Welcome! We're a reading group exploring how machine learning and AI are transfo
 |---|---|
 | 📖 [Reading List](reading-list) | Papers organized by session |
 | 💡 [Suggest a Paper](suggest) | Propose new papers for the group |
-| 🗳️ [Vote on Suggestions](https://github.com/OWNER/precisionmicro-journalclub/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22) | Browse & upvote open suggestions |
+| 🗳️ [Vote on Suggestions](https://github.com/hrydbeck/PLmicRO/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22) | Browse & upvote open suggestions |
 
-> **Note:** Replace `OWNER` in the vote link above with your GitHub username or organization once the repo is live.
