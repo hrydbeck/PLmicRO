@@ -1,0 +1,14 @@
+title: "Precision Micro Journal Club"
+description: "AI & Machine Learning in Clinical Microbiology — a collaborative reading group"
+theme: minima
+baseurl: "/precisionmicro-journalclub"   # change to match your repo name
+url: ""                                   # GitHub fills this in automatically
+
+header_pages:
+  - index.md
+  - reading-list.md
+  - suggest.md
+
+# Optional: add your names / social
+author:
+  name: "Precision Micro Journal Club"
