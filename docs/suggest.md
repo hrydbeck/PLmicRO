@@ -12,19 +12,36 @@ We want papers that feel relevant to the whole group — that's why **anyone can
 
 ## How to Suggest
 
-1. **Open a new Issue** on our GitHub repo using the link below.
-2. Fill in the paper details (title, authors, journal, year, and a sentence on why it's relevant).
-3. Your suggestion appears as an open Issue for the group to see.
+### Option 1: Microsoft Lists (Recommended) 
+1. Access our **Paper Suggestions** list in the PLmicRO Journal Club Team (on Microsoft Teams).
+2. Click **"Add new item"** and fill in:
+   - **Paper Title**
+   - **DOI** (or link to the paper)
+   - **Authors**
+   - **Suggested by** (your name)
+   - **Reason** (why it's relevant to the group)
+3. Save — your suggestion is live for voting!
+
+### Option 2: GitHub Issues
+If you prefer, you can open a new Issue on our GitHub repo:
 
 👉 [**Suggest a Paper →**](https://github.com/hrydbeck/PLmicRO/issues/new?template=paper-suggestion.md&title=%5BPaper+Suggestion%5D+TITLE+HERE)
+
+
+
 
 ---
 
 ## How to Vote
 
-- Browse the [open paper suggestions](https://github.com/hrydbeck/PLmicRO/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22).
+### On Microsoft Lists (Recommended)
+- Open the **Paper Suggestions** list in Teams.
+- Click the **Likes** icon next to any paper you want to read.
+- Papers with the most Likes will be selected for the reading schedule.
+
+### On GitHub
+- Browse [open paper suggestions](https://github.com/hrydbeck/PLmicRO/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper-suggestion%22).
 - **Add a 👍 reaction** to any paper you'd like us to read.
-- Papers with the most 👍 get added to the reading list.
 
 ---
 
