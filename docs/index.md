@@ -16,7 +16,7 @@ Welcome! We're a reading group at the intersection of precision medicine, clinic
 
 1. **We meet regularly** to discuss one or two papers per session.
 2. **Anyone can suggest a paper** — see [Suggest a Paper](suggest) for instructions.
-3. **We vote with 👍 reactions** on GitHub Issues to pick the most relevant papers.
+3. **We vote with Likes** on the SharePoint list to pick the most relevant papers.
 4. Papers with the most votes get added to the [Reading List](reading-list).
 
 ---
@@ -38,4 +38,4 @@ Welcome! We're a reading group at the intersection of precision medicine, clinic
 |---|---|
 | 📖 [Reading List](reading-list) | Papers organized by session |
 | 💡 [Suggest a Paper](suggest) | Propose new papers for the group |
-| 🗳️ [Vote on Suggestions](https://github.com/hrydbeck/PLmicRO/issues?q=is%3Aissue+is%3Aopen+label%3A%22paper+suggestion%22) | Browse & upvote open suggestions |
+| 🗳️ [Vote on Suggestions](https://ostergotland-my.sharepoint.com/personal/halfdan_rydbeck_regionostergotland_se/Lists/Paper%20Suggestions/AllItems.aspx) | Browse & vote with Likes |
