@@ -12,15 +12,20 @@ We want papers that feel relevant to the whole group — that's why **anyone can
 
 ## How to Suggest
 
-### Option 1: Microsoft Lists (Recommended) 
-1. Access our **Paper Suggestions** list in the PLmicRO Journal Club Team (on Microsoft Teams).
+### Option 1: SharePoint List (Recommended) 
+1. Open the **[Paper Suggestions](https://ostergotland-my.sharepoint.com/personal/halfdan_rydbeck_regionostergotland_se/Lists/Paper%20Suggestions/AllItems.aspx)** list.
 2. Click **"Add new item"** and fill in:
    - **Paper Title**
    - **DOI** (or link to the paper)
    - **Authors**
    - **Suggested by** (your name)
    - **Reason** (why it's relevant to the group)
+   - **Status** (leave as default)
 3. Save — your suggestion is live for voting!
+
+*Note: You'll need access to the Region Östergötland SharePoint. Contact the organizer if you need access.*
+
+
 
 ### Option 2: GitHub Issues
 If you prefer, you can open a new Issue on our GitHub repo:
@@ -34,8 +39,8 @@ If you prefer, you can open a new Issue on our GitHub repo:
 
 ## How to Vote
 
-### On Microsoft Lists (Recommended)
-- Open the **Paper Suggestions** list in Teams.
+### On SharePoint List (Recommended)
+- Open the **[Paper Suggestions](https://ostergotland-my.sharepoint.com/personal/halfdan_rydbeck_regionostergotland_se/Lists/Paper%20Suggestions/AllItems.aspx)** list.
 - Click the **Likes** icon next to any paper you want to read.
 - Papers with the most Likes will be selected for the reading schedule.
 
