@@ -29,8 +29,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin master
           git reset --hard origin/master
-          git clean -fd
-          echo "Synced with remote and cleaned working directory"
+          echo "Synced to origin/master"
       
       - name: Fetch issue details
         id: issue
@@ -40,22 +39,19 @@ jobs:
           set -e
           echo "Fetching issue #${{ github.event.inputs.issue_number }}..."
           
-          # Fetch issue using GitHub CLI
           issue_json=$(gh api repos/${{ github.repository }}/issues/${{ github.event.inputs.issue_number }})
           
-          # Extract title and body
           title=$(echo "$issue_json" | jq -r '.title' | sed 's/^\[Paper Suggestion\] *//')
           body=$(echo "$issue_json" | jq -r '.body // ""')
           
           echo "Title: $title"
-          echo "Body preview: ${body:0:100}..."
           
-          # Parse DOI and Authors from body (try multiple patterns)
+          # Parse DOI and Authors
           doi=$(echo "$body" | grep -i -m1 'doi' | grep -oP '10\.\S+' | head -1 || echo "")
           authors=$(echo "$body" | grep -i -m1 'author' | sed 's/.*[Aa]uthor[s]*[:\s]*//; s/\*\*//g' | head -1 | xargs || echo "")
           
-          echo "Extracted DOI: $doi"
-          echo "Extracted Authors: $authors"
+          echo "DOI: $doi"
+          echo "Authors: $authors"
           
           # Format paper entry
           if [ -n "$authors" ]; then
@@ -68,9 +64,6 @@ jobs:
             paper="$paper ($doi)"
           fi
           
-          echo "Final paper entry: $paper"
-          
-          # Output for next steps (escape special characters)
           {
             echo "paper<<EOF"
             echo "$paper"
@@ -82,66 +75,31 @@ jobs:
         id: session
         run: |
           set -e
-          echo "Finding next session number..."
-          
-          # Find the highest session number in reading_list.md
           if [ -f reading_list.md ]; then
             max_session=$(grep -oP '^\d+' reading_list.md 2>/dev/null | sort -n | tail -1 || echo "6")
           else
             max_session=6
           fi
-          
           next_session=$((max_session + 1))
-          echo "Next session: $next_session"
           echo "next=$next_session" >> $GITHUB_OUTPUT
       
       - name: Add paper to reading list
         run: |
           set -e
-          echo "Adding paper to reading list..."
-          
-          # Append new row to reading_list.md (tab-separated)
           printf '%s\t%s\t%s\t%s\n' "${{ steps.session.outputs.next }}" "TBD" "${{ steps.issue.outputs.paper }}" "- [ ] Read" >> reading_list.md
-          
-          echo "Entry added successfully"
-          tail -1 reading_list.md
+          echo "Paper added to session ${{ steps.session.outputs.next }}"
       
-      - name: Commit and push changes
+      - name: Commit and push
         run: |
           set -e
           git add reading_list.md
-          git commit -m "Add paper from issue #${{ steps.issue.outputs.issue_number }}"
-          
-          # Push with retry logic
-          max_attempts=3
-          attempt=1
-          while [ $attempt -le $max_attempts ]; do
-            echo "Push attempt $attempt of $max_attempts"
-            if git push; then
-              echo "Changes pushed successfully"
-              break
-            else
-              if [ $attempt -lt $max_attempts ]; then
-                echo "Push failed, syncing and retrying..."
-                git fetch origin master
-                git reset --hard origin/master
-                git cherry-pick HEAD@{1}
-                attempt=$((attempt + 1))
-                sleep 2
-              else
-                echo "Push failed after $max_attempts attempts"
-                exit 1
-              fi
-            fi
-          done
+          git commit -m "Add paper: ${{ steps.issue.outputs.paper }}"
+          git push origin master
       
-      - name: Close issue and comment
+      - name: Close issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -e
-          echo "Closing issue and adding comment..."
           gh issue close ${{ github.event.inputs.issue_number }} \
             --comment "✅ Added to [reading list](https://hrydbeck.github.io/PLmicRO/reading-list/) as Session ${{ steps.session.outputs.next }}"
-          
-          echo "Issue closed successfully"
