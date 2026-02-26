@@ -74,47 +74,71 @@ def sync_to_zotero(config, papers):
     if journal_club_key:
         print(f"✅ Journal Club ready")
     
-    # Get or create Series 1 collection
-    series_name = 'Series 1 - AI & ML in Clinical Microbiology'
-    series_key = None
-    for col in collections:
-        if col.get('data', {}).get('name') == series_name:
-            series_key = col.get('key')
-            break
+    # Determine which series are needed
+    series_definitions = {
+        'Series 1 - AI & ML in Clinical Microbiology': range(1, 7),
+        'Series 2 - AI and Precision Medicine': range(7, 13),
+    }
     
-    if not series_key:
-        data = {
-            "name": series_name,
-            "parentCollection": journal_club_key
-        }
-        resp = requests.post(url, headers=headers, json=[data])
-        if resp.status_code == 200:
-            result = resp.json()
-            series_key = list(result.get('successful', {}).values())[0].get('key')
-    
-    if series_key:
-        print(f"✅ {series_name} ready")
+    series_keys = {}
+    for series_name, session_range in series_definitions.items():
+        # Check if any papers belong to this series
+        if any(p['session'] in session_range for p in papers):
+            series_key = None
+            for col in collections:
+                if col.get('data', {}).get('name') == series_name:
+                    series_key = col.get('key')
+                    break
+            
+            if not series_key:
+                data = {
+                    "name": series_name,
+                    "parentCollection": journal_club_key
+                }
+                resp = requests.post(url, headers=headers, json=[data])
+                if resp.status_code == 200:
+                    result = resp.json()
+                    series_key = list(result.get('successful', {}).values())[0].get('key')
+            
+            if series_key:
+                series_keys[series_name] = series_key
+                print(f"✅ {series_name} ready")
     
     # Refresh collections list
     resp = requests.get(url, headers=headers)
     collections = resp.json() if resp.status_code == 200 else []
     
+    # Refresh collections list
+    resp = requests.get(url, headers=headers)
+    collections = resp.json() if resp.status_code == 200 else []
+    
+    # Helper to find series key for a session number
+    def get_series_key_for_session(session_num):
+        for series_name, session_range in series_definitions.items():
+            if session_num in session_range and series_name in series_keys:
+                return series_keys[series_name]
+        return None
+    
     # Create session folders
     session_keys = {}
     for session_num in sorted(set(p['session'] for p in papers)):
         session_name = f"Session {session_num}"
+        parent_series_key = get_series_key_for_session(session_num)
+        if not parent_series_key:
+            print(f"  ⚠️  No series found for session {session_num}")
+            continue
         session_key = None
         
         for col in collections:
             col_data = col.get('data', {})
-            if col_data.get('name') == session_name and col_data.get('parentCollection') == series_key:
+            if col_data.get('name') == session_name and col_data.get('parentCollection') == parent_series_key:
                 session_key = col.get('key')
                 break
         
         if not session_key:
             data = {
                 "name": session_name,
-                "parentCollection": series_key
+                "parentCollection": parent_series_key
             }
             resp = requests.post(url, headers=headers, json=[data])
             if resp.status_code == 200:
