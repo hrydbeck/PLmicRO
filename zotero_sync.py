@@ -104,11 +104,18 @@ class ZoteroSync:
             if isinstance(result, dict):
                 successful = result.get('successful', {})
                 if successful:
-                    item_key = list(successful.values())[0]
+                    response_obj = list(successful.values())[0]
+                    # Extract key from response object if it's a dict
+                    if isinstance(response_obj, dict) and 'key' in response_obj:
+                        item_key = response_obj['key']
+                    else:
+                        item_key = response_obj
                     
                     # Add to collection if specified
                     if collection_key:
-                        self.add_item_to_collection(item_key, collection_key)
+                        added = self.add_item_to_collection(item_key, collection_key)
+                        if not added:
+                            print(f"      ⚠️  Item created but failed to add to collection")
                     
                     return item_key
             return None
@@ -120,7 +127,13 @@ class ZoteroSync:
         """Add item to collection."""
         url = f"{self.base_url}/collections/{collection_key}/items"
         resp = requests.post(url, headers=self.headers, data=item_key)
-        return resp.status_code == 204
+        if resp.status_code == 204:
+            return True
+        else:
+            print(f"      ✗ Failed to add item to collection: {resp.status_code}")
+            if resp.text:
+                print(f"        Response: {resp.text[:200]}")
+            return False
 
 def load_config():
     """Load Zotero credentials from config file."""
