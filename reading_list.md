@@ -33,3 +33,4 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 - [ ] Session 5 completed
 - [ ] Session 6 completed
 1TBDGreener et al. — A guide to machine learning for biologists- [ ] Read
+2	TBD	[Wheeler NE, Price V, Cunningham-Oakes E, et al.] — Paper: Innovations in genomic antimicrobial resistance surveillance (10.1016/S2666-5247(23)00285-9])	- [ ] Read
