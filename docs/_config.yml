@@ -8,6 +8,7 @@ header_pages:
   - index.md
   - reading-list.md
   - suggest.md
+  - zotero.md
 
 author:
   name: "PLmicRO Journal Club"

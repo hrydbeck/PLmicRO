@@ -38,4 +38,5 @@ Welcome! We're a reading group at the intersection of precision medicine, clinic
 |---|---|
 | 📖 [Reading List](reading-list) | Papers organized by session |
 | 💡 [Suggest a Paper](suggest) | Propose new papers for the group |
+| 📚 [Zotero Library](zotero) | Join our shared library & share papers |
 | 🗳️ [Vote on Suggestions](https://ostergotland-my.sharepoint.com/personal/halfdan_rydbeck_regionostergotland_se/Lists/Paper%20Suggestions/AllItems.aspx) | Browse & vote with Likes |
