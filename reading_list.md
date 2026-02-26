@@ -32,3 +32,4 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 - [ ] Session 4 completed
 - [ ] Session 5 completed
 - [ ] Session 6 completed
+1TBDGreener et al. — A guide to machine learning for biologists- [ ] Read
