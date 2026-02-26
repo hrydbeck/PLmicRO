@@ -75,8 +75,8 @@ jobs:
         id: session
         run: |
           set -e
-          if [ -f reading_list.md ]; then
-            max_session=$(grep -oP '^\d+' reading_list.md 2>/dev/null | sort -n | tail -1 || echo "6")
+          if [ -f docs/reading-list.md ]; then
+            max_session=$(grep -oP '^\| \K\d+' docs/reading-list.md 2>/dev/null | sort -n | tail -1 || echo "6")
           else
             max_session=6
           fi
@@ -86,13 +86,19 @@ jobs:
       - name: Add paper to reading list
         run: |
           set -e
+          
+          # Add to docs/reading-list.md (published version)
+          printf '| %d | TBD | %s | - [ ] Read |\n' "${{ steps.session.outputs.next }}" "${{ steps.issue.outputs.paper }}" >> docs/reading-list.md
+          
+          # Also add to root reading_list.md (backup)
           printf '%s\t%s\t%s\t%s\n' "${{ steps.session.outputs.next }}" "TBD" "${{ steps.issue.outputs.paper }}" "- [ ] Read" >> reading_list.md
+          
           echo "Paper added to session ${{ steps.session.outputs.next }}"
       
       - name: Commit and push
         run: |
           set -e
-          git add reading_list.md
+          git add docs/reading-list.md reading_list.md
           git commit -m "Add paper: ${{ steps.issue.outputs.paper }}"
           git push origin master
       
