@@ -75,8 +75,8 @@ jobs:
         id: session
         run: |
           set -e
-          if [ -f docs/reading-list.md ]; then
-            max_session=$(grep -oP '^\| \K\d+' docs/reading-list.md 2>/dev/null | sort -n | tail -1 || echo "6")
+          if [ -f reading_list.md ]; then
+            max_session=$(grep -oP '^\d+' reading_list.md 2>/dev/null | sort -n | tail -1 || echo "6")
           else
             max_session=6
           fi
@@ -86,19 +86,13 @@ jobs:
       - name: Add paper to reading list
         run: |
           set -e
-          
-          # Add to docs/reading-list.md (published version)
-          printf '| %d | TBD | %s | - [ ] Read |\n' "${{ steps.session.outputs.next }}" "${{ steps.issue.outputs.paper }}" >> docs/reading-list.md
-          
-          # Also add to root reading_list.md (backup)
           printf '%s\t%s\t%s\t%s\n' "${{ steps.session.outputs.next }}" "TBD" "${{ steps.issue.outputs.paper }}" "- [ ] Read" >> reading_list.md
-          
           echo "Paper added to session ${{ steps.session.outputs.next }}"
       
       - name: Commit and push
         run: |
           set -e
-          git add docs/reading-list.md reading_list.md
+          git add reading_list.md
           git commit -m "Add paper: ${{ steps.issue.outputs.paper }}"
           git push origin master
       
@@ -108,4 +102,6 @@ jobs:
         run: |
           set -e
           gh issue close ${{ github.event.inputs.issue_number }} \
-            --comment "✅ Added to [reading list](https://hrydbeck.github.io/PLmicRO/reading-list/) as Session ${{ steps.session.outputs.next }}"
+            --comment "✅ Paper added to reading list as Session ${{ steps.session.outputs.next }}. 
+          
+Note: The root \`reading_list.md\` has been updated. The published \`docs/reading-list.md\` needs to be manually updated or integrated into the workflow. See [reading list](https://hrydbeck.github.io/PLmicRO/)."
