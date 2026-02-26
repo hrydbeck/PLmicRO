@@ -6,11 +6,25 @@ permalink: /reading-list/
 
 # Reading List
 
-Our first series focuses on AI and machine learning in clinical microbiology — one of many topic areas we plan to explore. Future sessions will cover broader precision medicine, genomic epidemiology, and bioinformatics methods.
+We organize papers by topic series. Each series digs into a specific area of AI and precision medicine.
 
 ---
 
-## Current Series: AI & ML in Clinical Microbiology
+## Available Series
+
+### 📊 Series 1: AI & ML in Clinical Microbiology
+Focus on machine learning applications in clinical microbiology labs — from pathogen identification to antimicrobial resistance prediction.
+- **Status**: Active (6 sessions planned)
+- Sessions: Foundational ML → Benchmarking → Clinical reviews → MALDI-TOF → Deep learning → Genomic surveillance
+
+### 🏥 Series 2: AI and Precision Medicine (General)
+Broader applications of AI in precision medicine across multiple clinical domains.
+- **Status**: Proposed
+- Topics may include: Genomic medicine, drug discovery, clinical decision support, patient stratification, and health outcomes prediction
+
+---
+
+## Series 1: AI & ML in Clinical Microbiology
 
 ### Session 1 — Intro to ML for Biologists
 
@@ -76,15 +90,20 @@ Our first series focuses on AI and machine learning in clinical microbiology —
 
 ---
 
-## Progress
+## Series 1 Progress
 
-- [ ] Session 1
-- [ ] Session 2
-- [ ] Session 3
-- [ ] Session 4
-- [ ] Session 5
-- [ ] Session 6
+- [ ] Session 1 completed
+- [ ] Session 2 completed
+- [ ] Session 3 completed
+- [ ] Session 4 completed
+- [ ] Session 5 completed
+- [ ] Session 6 completed
 
 ---
 
-*Have a paper to suggest for a future session or series? Head to [Suggest a Paper](../suggest).*
+## Series 2: AI and Precision Medicine (General)
+*Coming soon — papers to be selected and organized by session.*
+
+---
+
+*Have a paper to suggest for any of our series? Head to [Suggest a Paper](../suggest).*
