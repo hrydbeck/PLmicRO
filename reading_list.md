@@ -4,6 +4,8 @@
 
 Six sessions covering AI and machine learning in clinical microbiology, from foundational concepts to applied genomic surveillance.
 
+📦 [View archived papers](reading_list_archive) from previous sessions.
+
 ---
 
 ## Session Plan
