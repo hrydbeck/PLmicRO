@@ -167,7 +167,7 @@ def parse_reading_list(filepath):
                 
                 # Extract DOI if present
                 doi_match = re.search(r'10\.\d+/\S+', paper)
-                doi = doi_match.group(0) if doi_match else None
+                doi = doi_match.group(0).rstrip('])') if doi_match else None
                 
                 papers.append({
                     'session': session,
