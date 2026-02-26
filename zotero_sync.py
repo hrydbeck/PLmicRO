@@ -7,7 +7,6 @@ Populates Zotero collections from reading_list.md
 import re
 from pathlib import Path
 from pyzotero import zotero
-import json
 
 CONFIG_FILE = ".zotero_config"
 READING_LIST = "reading_list.md"
@@ -17,10 +16,6 @@ def load_config():
     config = {}
     if not Path(CONFIG_FILE).exists():
         print(f"❌ Config file not found: {CONFIG_FILE}")
-        print(f"\nCreate {CONFIG_FILE} with:")
-        print("API_KEY=your_api_key")
-        print("LIBRARY_ID=your_library_id")
-        print("LIBRARY_TYPE=user")
         exit(1)
     
     with open(CONFIG_FILE) as f:
@@ -77,7 +72,6 @@ def get_or_create_collection(zotero_client, collection_name, parent_key=None):
             col_name = col['data'].get('name', '')
             col_parent = col['data'].get('parentCollection', False)
             
-            # Check if this collection exists with the right parent
             if col_name == collection_name:
                 if (parent_key is None and col_parent is False) or (col_parent == parent_key):
                     return col['key']
@@ -90,8 +84,10 @@ def get_or_create_collection(zotero_client, collection_name, parent_key=None):
         if parent_key:
             collection_data['parentCollection'] = parent_key
         
+        # create_collection returns the key directly as a string
         response = zotero_client.create_collection(collection_data)
         if response:
+            print(f"    ✓ Created with key: {response}")
             return response
         return None
         
@@ -119,7 +115,7 @@ def add_paper_by_doi(zotero_client, doi, collection_key, session, topic):
             try:
                 zotero_client.collection_item_add(collection_key, item_key)
             except:
-                pass  # Item added even if collection add fails
+                pass
             return True
     except Exception as e:
         print(f"  ⚠️  Error adding {doi}: {e}")
@@ -156,7 +152,6 @@ def add_paper_manually(zotero_client, paper_text, collection_key, session, topic
 
 def sync_to_zotero(config, papers):
     """Sync papers to Zotero with folder structure."""
-    zotero_client = get_or_create_collection
     try:
         zotero_client = get_zotero_client(config)
         print(f"🔗 Connected to Zotero (Library: {config['LIBRARY_ID']})")
@@ -171,7 +166,7 @@ def sync_to_zotero(config, papers):
     if not journal_club_key:
         print("❌ Failed to create Journal Club collection")
         return
-    print(f"✅ Journal Club collection created")
+    print(f"✅ Journal Club collection ready")
     
     # Create Series folders
     series_map = {}
@@ -182,7 +177,7 @@ def sync_to_zotero(config, papers):
             series_key = get_or_create_collection(zotero_client, series_name, journal_club_key)
             if series_key:
                 series_map[series_name] = series_key
-                print(f"✅ {series_name} created")
+                print(f"✅ {series_name} ready")
     
     # Create session folders and add papers
     print("\n📄 Adding papers...")
@@ -235,6 +230,7 @@ def sync_to_zotero(config, papers):
     print(f"   ✅ Added: {added}")
     print(f"   ❌ Failed: {failed}")
     print(f"{'='*50}")
+    print(f"\n✨ Check your Zotero group library!")
 
 def main():
     """Main entry point."""
