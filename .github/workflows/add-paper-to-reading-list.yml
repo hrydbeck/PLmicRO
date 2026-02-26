@@ -119,7 +119,8 @@ jobs:
             else
               if [ $attempt -lt $max_attempts ]; then
                 echo "Push failed, pulling and retrying..."
-                git pull --rebase origin master
+                git fetch origin master
+                git rebase origin/master
                 attempt=$((attempt + 1))
                 sleep 2
               else
