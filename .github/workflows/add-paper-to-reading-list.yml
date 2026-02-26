@@ -8,12 +8,13 @@ on:
         required: true
         type: number
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   add-paper:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: read
     
     steps:
       - name: Checkout repository
@@ -21,46 +22,47 @@ jobs:
       
       - name: Fetch issue details
         id: issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const issue = await github.rest.issues.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ github.event.inputs.issue_number }}
-            });
-            
-            // Extract title and body
-            const title = issue.data.title.replace(/^\[Paper Suggestion\]\s*/i, '');
-            const body = issue.data.body || '';
-            
-            // Parse DOI, Authors from issue body (assuming format from template)
-            const doiMatch = body.match(/\*\*DOI[:\s]+\*\*\s*(.+?)$/m);
-            const authorsMatch = body.match(/\*\*Authors[:\s]+\*\*\s*(.+?)$/m);
-            
-            const doi = doiMatch ? doiMatch[1].trim() : '';
-            const authors = authorsMatch ? authorsMatch[1].trim() : '';
-            
-            // Format paper entry
-            let paperEntry = title;
-            if (authors) paperEntry = `${authors} — ${paperEntry}`;
-            if (doi) paperEntry = `${paperEntry} (${doi})`;
-            
-            core.setOutput('paper', paperEntry);
-            core.setOutput('issue_number', issue.data.number);
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch issue using GitHub CLI
+          issue_json=$(gh api repos/${{ github.repository }}/issues/${{ github.event.inputs.issue_number }})
+          
+          # Extract title and body
+          title=$(echo "$issue_json" | jq -r '.title' | sed 's/^\[Paper Suggestion\] *//')
+          body=$(echo "$issue_json" | jq -r '.body // ""')
+          
+          # Parse DOI and Authors from body
+          doi=$(echo "$body" | grep -oP '(?<=\*\*DOI[:\s]*\*\*\s).*' | head -1 | xargs)
+          authors=$(echo "$body" | grep -oP '(?<=\*\*Authors[:\s]*\*\*\s).*' | head -1 | xargs)
+          
+          # Format paper entry
+          if [ -n "$authors" ]; then
+            paper="$authors — $title"
+          else
+            paper="$title"
+          fi
+          
+          if [ -n "$doi" ]; then
+            paper="$paper ($doi)"
+          fi
+          
+          # Output for next steps
+          echo "paper=$paper" >> $GITHUB_OUTPUT
+          echo "issue_number=${{ github.event.inputs.issue_number }}" >> $GITHUB_OUTPUT
       
       - name: Get next session number
         id: session
         run: |
           # Find the highest session number in reading_list.md
-          max_session=$(grep -oP '^\d+' reading_list.md | sort -n | tail -1)
+          max_session=$(grep -oP '^\d+' reading_list.md | sort -n | tail -1 || echo "6")
           next_session=$((max_session + 1))
           echo "next=$next_session" >> $GITHUB_OUTPUT
       
       - name: Add paper to reading list
         run: |
-          # Append new row to reading_list.md
-          echo "${{ steps.session.outputs.next }}TBD${{ steps.issue.outputs.paper }}- [ ] Read" >> reading_list.md
+          # Append new row to reading_list.md (tab-separated)
+          printf "%s\t%s\t%s\t%s\n" "${{ steps.session.outputs.next }}" "TBD" "${{ steps.issue.outputs.paper }}" "- [ ] Read" >> reading_list.md
       
       - name: Commit changes
         run: |
@@ -70,20 +72,9 @@ jobs:
           git commit -m "Add paper from issue #${{ steps.issue.outputs.issue_number }}"
           git push
       
-      - name: Close issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.issues.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ github.event.inputs.issue_number }},
-              state: 'closed'
-            });
-            
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ github.event.inputs.issue_number }},
-              body: '✅ Added to [reading list](https://hrydbeck.github.io/PLmicRO/reading-list/) as Session ${{ steps.session.outputs.next }}'
-            });
+      - name: Close issue and comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue close ${{ github.event.inputs.issue_number }} \
+            --comment "✅ Added to [reading list](https://hrydbeck.github.io/PLmicRO/reading-list/) as Session ${{ steps.session.outputs.next }}"
