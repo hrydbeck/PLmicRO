@@ -20,13 +20,9 @@ We use a shared **Zotero group library** to collect and organise all papers for 
 
 ---
 
-## Install Zotero (optional but recommended)
+## Install Zotero
 
-The desktop app makes it easy to read, annotate, and organise papers:
-
-1. Download **Zotero 7** from [zotero.org/download](https://www.zotero.org/download/).
-2. Install the **Zotero Connector** browser extension — it lets you save papers to Zotero with one click.
-3. Sign in with your Zotero account. The group library will sync automatically.
+Zotero is available for installation on computers on the hospital network. Once installed, sign in with your Zotero account and the group library will sync automatically.
 
 ---
 
