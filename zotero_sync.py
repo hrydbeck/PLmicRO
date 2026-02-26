@@ -43,7 +43,7 @@ class ZoteroSync:
         if parent_key:
             data["parentCollection"] = parent_key
         
-        resp = requests.post(url, headers=self.headers, json=data)
+        resp = requests.post(url, headers=self.headers, json=[data])
         
         if resp.status_code == 200:
             result = resp.json()
