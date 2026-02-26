@@ -1,0 +1,6 @@
+# Zotero Configuration
+# Get these values from https://www.zotero.org/settings/keys
+
+API_KEY=your_api_key_here
+LIBRARY_ID=your_library_id_here
+LIBRARY_TYPE=user
