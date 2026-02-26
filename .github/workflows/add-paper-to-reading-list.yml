@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       
       - name: Fetch issue details
         id: issue
@@ -94,15 +96,38 @@ jobs:
           echo "Entry added successfully"
           tail -1 reading_list.md
       
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Pull latest changes first to avoid conflicts
+          git pull --rebase origin master
+          
           git add reading_list.md
           git commit -m "Add paper from issue #${{ steps.issue.outputs.issue_number }}"
-          git push
-          echo "Changes pushed successfully"
+          
+          # Push with retry logic
+          max_attempts=3
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Push attempt $attempt of $max_attempts"
+            if git push; then
+              echo "Changes pushed successfully"
+              break
+            else
+              if [ $attempt -lt $max_attempts ]; then
+                echo "Push failed, pulling and retrying..."
+                git pull --rebase origin master
+                attempt=$((attempt + 1))
+                sleep 2
+              else
+                echo "Push failed after $max_attempts attempts"
+                exit 1
+              fi
+            fi
+          done
       
       - name: Close issue and comment
         env:
