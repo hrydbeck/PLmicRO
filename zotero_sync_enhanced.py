@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Simple Zotero sync - Add papers from reading_list.md to Zotero
+Enhanced Zotero sync - Add papers with metadata from reading_list.md to Zotero
+Extracts authors, year, title, journal from paper citations
 """
 
 import re
@@ -20,6 +21,43 @@ def load_config():
                 config[key] = value
     return config
 
+def parse_paper_info(paper_text):
+    """
+    Parse paper info from format: Authors (Year) — *Title*, Journal
+    Returns: (authors, year, title, journal, doi)
+    """
+    authors = ""
+    year = ""
+    title = ""
+    journal = ""
+    doi = None
+    
+    # Extract DOI
+    doi_match = re.search(r'10\.\d+/\S+', paper_text)
+    doi = doi_match.group(0).rstrip('])') if doi_match else None
+    
+    # Extract authors and year: "Lastname et al. (YYYY)"
+    auth_year = re.match(r'^([A-Za-z\s\.]+et al\.)\s*\((\d{4})\)', paper_text)
+    if auth_year:
+        authors = auth_year.group(1).strip()
+        year = auth_year.group(2)
+    
+    # Extract title between asterisks: *Title*
+    title_match = re.search(r'\*(.*?)\*', paper_text)
+    if title_match:
+        title = title_match.group(1).strip()
+    
+    # Extract journal after the last comma
+    parts = paper_text.split('*')
+    if len(parts) > 2:
+        after_title = parts[2]  # Text after closing *
+        # Get text after last comma
+        journal_parts = after_title.split(',')
+        if journal_parts:
+            journal = journal_parts[-1].strip().rstrip(')')
+    
+    return authors, year, title, journal, doi
+
 def parse_reading_list():
     papers = []
     with open(READING_LIST, 'r') as f:
@@ -31,12 +69,18 @@ def parse_reading_list():
                 session = int(parts[0].strip())
                 topic = parts[1].strip() if len(parts) > 1 else "TBD"
                 paper = parts[2].strip() if len(parts) > 2 else ""
-                doi_match = re.search(r'10\.\d+/\S+', paper)
-                doi = doi_match.group(0).rstrip('])') if doi_match else None
+                
+                # Parse paper info
+                authors, year, title, journal, doi = parse_paper_info(paper)
+                
                 papers.append({
                     'session': session,
                     'topic': topic,
                     'paper': paper,
+                    'authors': authors,
+                    'year': year,
+                    'title': title,
+                    'journal': journal,
                     'doi': doi
                 })
     return papers
@@ -141,15 +185,33 @@ def sync_to_zotero(config, papers):
             print(f"  ⚠️  Session {session} key not found")
             continue
         
-        # Create item
+        # Create item with metadata
         item = {
             'itemType': 'journalArticle',
-            'title': f"({topic}) {paper['paper'][:80]}",
+            'title': paper['title'] or f"({topic}) {paper['paper'][:80]}",
             'tags': [
                 {'tag': f'Session {session}'},
                 {'tag': topic}
             ]
         }
+        
+        # Add optional fields if available
+        if paper['authors']:
+            # Parse first author
+            first_author = paper['authors'].split()[0].rstrip(',')
+            item['creators'] = [
+                {
+                    'firstName': '',
+                    'lastName': first_author,
+                    'creatorType': 'author'
+                }
+            ]
+        
+        if paper['year']:
+            item['date'] = paper['year']
+        
+        if paper['journal']:
+            item['publicationTitle'] = paper['journal']
         
         if paper['doi']:
             item['DOI'] = paper['doi']
@@ -168,7 +230,7 @@ def sync_to_zotero(config, papers):
                 resp = requests.post(coll_url, headers=headers, data=item_key)
                 
                 if resp.status_code == 204:
-                    print(f"  ✅ Session {session}: {paper['paper'][:50]}...")
+                    print(f"  ✅ Session {session}: {paper['title'][:50] or paper['authors'][:50]}...")
                     added += 1
                 else:
                     failed += 1
@@ -184,7 +246,7 @@ def sync_to_zotero(config, papers):
     print(f"{'='*50}")
 
 def main():
-    print("🔄 Zotero Reading List Sync\n")
+    print("🔄 Zotero Reading List Sync (Enhanced)\n")
     
     config = load_config()
     papers = parse_reading_list()
@@ -193,6 +255,13 @@ def main():
     if not papers:
         print("⚠️  No papers found")
         return
+    
+    # Show parsed metadata
+    print("Parsed metadata:")
+    for p in papers[:3]:
+        print(f"  Title: {p['title'][:50]}")
+        print(f"  Authors: {p['authors']}, Year: {p['year']}")
+        print(f"  Journal: {p['journal']}\n")
     
     sync_to_zotero(config, papers)
     print("\n✨ Check your Zotero group library!")
