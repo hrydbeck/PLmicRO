@@ -52,7 +52,10 @@ class ZoteroSync:
             if isinstance(result, dict):
                 successful = result.get('successful', {})
                 if successful:
-                    return list(successful.values())[0]
+                    response_obj = list(successful.values())[0]
+                    if isinstance(response_obj, dict) and 'key' in response_obj:
+                        return response_obj['key']
+                    return response_obj
                 
                 # Check for failures
                 failed = result.get('failed', {})
