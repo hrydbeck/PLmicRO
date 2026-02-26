@@ -41,18 +41,26 @@ class ZoteroSync:
             "name": name
         }
         if parent_key:
-            # parent_key must be just the collection key string, not False
             data["parentCollection"] = parent_key
         
         resp = requests.post(url, headers=self.headers, json=[data])
         
         if resp.status_code == 200:
             result = resp.json()
-            if isinstance(result, dict) and 'successful' in result:
-                keys = result.get('successful', {})
-                if keys:
-                    # Extract just the key string from the response
-                    return list(keys.values())[0]
+            
+            # Check for successful creations
+            if isinstance(result, dict):
+                successful = result.get('successful', {})
+                if successful:
+                    return list(successful.values())[0]
+                
+                # Check for failures
+                failed = result.get('failed', {})
+                if failed:
+                    error = list(failed.values())[0]
+                    print(f"  ✗ API Error: {error.get('message', 'Unknown error')}")
+                    return None
+            
             return None
         else:
             print(f"  Error creating collection '{name}': {resp.status_code}")
@@ -80,7 +88,6 @@ class ZoteroSync:
             print(f"    ✓ Created with key: {key}")
             return key
         else:
-            print(f"    ✗ Failed to create")
             return None
     
     def create_item(self, item_data, collection_key=None):
@@ -91,10 +98,10 @@ class ZoteroSync:
         
         if resp.status_code == 200:
             result = resp.json()
-            if isinstance(result, dict) and 'successful' in result:
-                keys = result.get('successful', {})
-                if keys:
-                    item_key = list(keys.values())[0]
+            if isinstance(result, dict):
+                successful = result.get('successful', {})
+                if successful:
+                    item_key = list(successful.values())[0]
                     
                     # Add to collection if specified
                     if collection_key:
