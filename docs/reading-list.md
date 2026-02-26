@@ -27,8 +27,9 @@ Our first series focuses on AI and machine learning in clinical microbiology —
 | Paper | Journal | Year |
 |-------|---------|------|
 | Topçuoğlu et al. — *A Framework for Effective Application of Machine Learning to Microbiome-Based Classification Problems* | mBio | 2020 |
+| [Wheeler NE, Price V, Cunningham-Oakes E, et al.] — *Paper: Innovations in genomic antimicrobial resistance surveillance* | Current Opinion in Microbiology | 2023 |
 
-**Why this paper?** Practical guide to proper cross-validation, metric selection, and avoiding data leakage.
+**Why these papers?** Practical guide to proper cross-validation, metric selection, avoiding data leakage, and applying ML to real-world antimicrobial resistance surveillance.
 
 ---
 
