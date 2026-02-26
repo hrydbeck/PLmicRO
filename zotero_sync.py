@@ -41,6 +41,7 @@ class ZoteroSync:
             "name": name
         }
         if parent_key:
+            # parent_key must be just the collection key string, not False
             data["parentCollection"] = parent_key
         
         resp = requests.post(url, headers=self.headers, json=[data])
@@ -50,12 +51,13 @@ class ZoteroSync:
             if isinstance(result, dict) and 'successful' in result:
                 keys = result.get('successful', {})
                 if keys:
+                    # Extract just the key string from the response
                     return list(keys.values())[0]
-            return result
+            return None
         else:
-            print(f"Error creating collection '{name}': {resp.status_code}")
+            print(f"  Error creating collection '{name}': {resp.status_code}")
             if resp.text:
-                print(f"  Response: {resp.text[:200]}")
+                print(f"    Response: {resp.text[:300]}")
             return None
     
     def get_or_create_collection(self, name, parent_key=None):
@@ -76,7 +78,10 @@ class ZoteroSync:
         key = self.create_collection(name, parent_key)
         if key:
             print(f"    ✓ Created with key: {key}")
-        return key
+            return key
+        else:
+            print(f"    ✗ Failed to create")
+            return None
     
     def create_item(self, item_data, collection_key=None):
         """Create an item in Zotero."""
@@ -96,7 +101,7 @@ class ZoteroSync:
                         self.add_item_to_collection(item_key, collection_key)
                     
                     return item_key
-            return result
+            return None
         else:
             print(f"  Error creating item: {resp.status_code}")
             return None
@@ -193,6 +198,8 @@ def main():
             if series_key:
                 series_map[series_name] = series_key
                 print(f"✅ {series_name} ready")
+            else:
+                print(f"❌ Failed to create {series_name}")
     
     # Create session folders and add papers
     print("\n📄 Adding papers...")
@@ -207,6 +214,7 @@ def main():
         series_name = 'Series 1 - AI & ML in Clinical Microbiology'
         
         if series_name not in series_map:
+            print(f"⚠️  Series not found")
             continue
         
         series_key = series_map[series_name]
@@ -218,6 +226,7 @@ def main():
             if session_key:
                 session_keys[session] = session_key
             else:
+                print(f"⚠️  Failed to create {session_name}")
                 continue
         else:
             session_key = session_keys[session]
