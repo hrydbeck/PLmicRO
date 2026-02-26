@@ -42,12 +42,12 @@ Six sessions covering AI and machine learning in clinical microbiology, from fou
 5Deep Learning in GenomicsCamacho et al. (2018) — Next-Generation Machine Learning for Biological Networks- [ ] Read
 6Genomic Surveillance & Taxonomic ProfilingMäklin et al. (2021) — Bacterial genomic epidemiology with mixed samples- [ ] Read
 6Genomic Surveillance & Taxonomic ProfilingYe et al. (2019) — Benchmarking Metagenomics Tools for Taxonomic Classification- [ ] Read
-1	Intro to ML for Biologists	Greener et al. (2022) — A guide to machine learning for biologists	- [ ] Read
-2	Benchmarking & Comparing AI Models	Topçuoğlu et al. (2020) — A Framework for Effective Application of Machine Learning to Microbiome-Based Classification Problems	- [ ] Read
-3	AI in Clinical Microbiology (Reviews)	Smith et al. (2023) — Machine Learning and Deep Learning in Clinical Microbiology: A Review	- [ ] Read
-3	AI in Clinical Microbiology (Reviews)	Peiffer-Smadja et al. (2020) — ML for clinical decision support in infectious diseases	- [ ] Read
-4	MALDI-TOF + ML	Weis et al. (2020) — ML for microbial identification and AST on MALDI-TOF mass spectra	- [ ] Read
-5	Deep Learning in Genomics	Eraslan et al. (2019) — Deep learning: new computational modelling techniques for genomics	- [ ] Read
-5	Deep Learning in Genomics	Camacho et al. (2018) — Next-Generation Machine Learning for Biological Networks	- [ ] Read
-6	Genomic Surveillance & Taxonomic Profiling	Mäklin et al. (2021) — Bacterial genomic epidemiology with mixed samples	- [ ] Read
-6	Genomic Surveillance & Taxonomic Profiling	Ye et al. (2019) — Benchmarking Metagenomics Tools for Taxonomic Classification	- [ ] Read
+1	Intro to ML for Biologists	Greener et al. (2022) — A guide to machine learning for biologists (10.1007/978-3-031-22206-1_11)	- [ ] Read
+2	Benchmarking & Comparing AI Models	Topçuoğlu et al. (2020) — A Framework for Effective Application of Machine Learning to Microbiome-Based Classification Problems (10.1101/816090)	- [ ] Read
+3	AI in Clinical Microbiology (Reviews)	Smith et al. (2023) — Machine Learning and Deep Learning in Clinical Microbiology: A Review (10.21275/sr231023115126)	- [ ] Read
+3	AI in Clinical Microbiology (Reviews)	Peiffer-Smadja et al. (2020) — ML for clinical decision support in infectious diseases (10.1016/j.ijid.2020.09.265)	- [ ] Read
+4	MALDI-TOF + ML	Weis et al. (2020) — ML for microbial identification and AST on MALDI-TOF mass spectra (10.1007/978-1-4614-3970-7_10)	- [ ] Read
+5	Deep Learning in Genomics	Eraslan et al. (2019) — Deep learning: new computational modelling techniques for genomics (10.3410/f.735512868.793559522)	- [ ] Read
+5	Deep Learning in Genomics	Camacho et al. (2018) — Next-Generation Machine Learning for Biological Networks (10.1016/j.cell.2018.05.015)	- [ ] Read
+6	Genomic Surveillance & Taxonomic Profiling	Mäklin et al. (2021) — Bacterial genomic epidemiology with mixed samples (10.1101/2020.04.03.021501)	- [ ] Read
+6	Genomic Surveillance & Taxonomic Profiling	Ye et al. (2019) — Benchmarking Metagenomics Tools for Taxonomic Classification (10.1016/j.cell.2019.07.010)	- [ ] Read
