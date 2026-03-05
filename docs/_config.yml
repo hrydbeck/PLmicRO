@@ -7,6 +7,7 @@ url: ""
 header_pages:
   - index.md
   - reading-list.md
+  - notes.md
   - suggest.md
   - zotero.md
 
