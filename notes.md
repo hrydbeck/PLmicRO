@@ -1,3 +1,5 @@
+> **Working scratchpad** — draft notes and prep go here. Polished notes are published in `docs/notes.md`.
+
 # Journal Club — Session Notes
 
 ---
