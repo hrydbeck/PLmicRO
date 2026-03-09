@@ -65,7 +65,17 @@
 
 *Questions, critiques, connections to our work*
 
-- 💬  
+### Top-k accuracy
+- **Top-1 accuracy** = correct causal variant ranked #1. **Top-5** = correct variant anywhere in the top 5 candidates.
+- Clinicians review a ranked shortlist anyway, so top-5 is practically meaningful — like having the right diagnosis in your differential.
+- Common metric in variant prioritization and information retrieval (cf. ImageNet top-5).
+
+### Benchmark design & selection bias
+- UDN patients were *originally* undiagnosed but many have **since been solved** through expert review, functional studies, etc. These solved cases provide the ground truth.
+- **Not all UDN cases are solved** — the diagnostic rate is ~30–35%. The benchmark uses only the subset with (a) a confirmed diagnosis AND (b) paired genomic + RNA-seq data.
+- This creates **selection bias**: solved cases may be systematically easier; the hardest cases remain unsolved and untested.
+- 💬 **Key question for discussion:** Does the 77% top-5 accuracy on the solvable subset tell us anything about performance on truly unsolved cases?
+- 💬 Could RareCollab help solve cases that humans couldn't, or does it only replicate what experts already achieved?
 
 ---
 
@@ -73,7 +83,10 @@
 
 | ✅ Strengths | ⚠️ Limitations |
 |---|---|
-|  |  |
+| Multi-modal integration (genomic + transcriptomic + phenotype) | Benchmark limited to solved UDN cases — selection bias toward "easier" cases |
+| Modular architecture — components can be updated independently | Requires paired RNA-seq data, which isn't always available |
+| ~20% improvement over existing variant prioritization tools | ~65–70% of UDN cases remain unsolved and untested |
+| Interpretable assessments from LLM Specialist Labs | Real-world performance on truly unsolved cases unknown |
 
 ---
 
