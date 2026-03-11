@@ -6,120 +6,63 @@ permalink: /notes/
 
 # Session Notes
 
-Collaborative notes from each journal club session. Everyone is welcome to contribute — use the ✏️ **Edit on GitHub** link below, or draft notes in [HackMD](https://hackmd.io) during the session and push them here afterwards.
-
-[✏️ Edit this page on GitHub](https://github.com/hrydbeck/PLmicRO/edit/master/docs/notes.md){: .btn }
+Collaborative notes from each journal club session. We draft notes in [HackMD](https://hackmd.io) during sessions and archive them here.
 
 ---
 
-## Session 1 — Intro to ML for Biologists
+## Active Notes (HackMD — live, collaborative)
 
-**Paper:** Greener et al. (2022) — *A guide to machine learning for biologists*, Nature Reviews Molecular Cell Biology
+| Session | Paper | HackMD Link |
+|---|---|---|
+| Session 1 | Greener et al. (2022) — *A guide to machine learning for biologists* | [Open in HackMD](https://hackmd.io) *(update link after creating note)* |
+| RareCollab | Qi et al. (2026) — *RareCollab — Agentic System for Mendelian Disorders* | [Open in HackMD](https://hackmd.io) *(update link after creating note)* |
 
-### Key Concepts
-
--
-
-### Discussion Points
-
--
-
-### Action Items
-
-- [ ]
+> **Tip:** Replace the HackMD links above with the actual note URLs once created. Use **⋮ → Versions and GitHub Sync → Push** in HackMD to sync notes back here.
 
 ---
 
-## Session 2 — Benchmarking & Comparing AI Models
+## Archived Notes (GitHub)
 
-**Paper:** Topçuoğlu et al. (2020) — *A Framework for Effective Application of Machine Learning to Microbiome-Based Classification Problems*, mBio
+Finished session notes are stored in the repo by topic:
 
-### Key Concepts
+### AI & Machine Learning
+- [Session 1 — ML Guide for Biologists](https://github.com/hrydbeck/PLmicRO/blob/master/notes/ai_ml/session1_ml_guide_notes.md)
+- [RareCollab — Agentic Diagnostics](https://github.com/hrydbeck/PLmicRO/blob/master/notes/ai_ml/rarecollab_notes.md)
 
--
+### Clinical Microbiology
+*Coming soon*
 
-### Discussion Points
+### Genomic Epidemiology
+*Coming soon*
 
--
+### Bioinformatics
+*Coming soon*
 
-### Action Items
+### Metagenomics
+*Coming soon*
 
-- [ ]
-
----
-
-## Session 3 — AI in Clinical Microbiology (Reviews)
-
-**Papers:**
-- Smith et al. (2023) — *Machine Learning and Deep Learning in Clinical Microbiology: A Review*, Clinical Microbiology Reviews
-- Peiffer-Smadja et al. (2020) — *ML for clinical decision support in infectious diseases*, Clinical Microbiology and Infection
-
-### Key Concepts
-
--
-
-### Discussion Points
-
--
-
-### Action Items
-
-- [ ]
+### Precision Medicine
+*Coming soon*
 
 ---
 
-## Session 4 — MALDI-TOF + ML
+## How It Works
 
-**Paper:** Weis et al. (2020) — *ML for microbial identification and AST on MALDI-TOF mass spectra*, Clinical Microbiology and Infection
-
-### Key Concepts
-
--
-
-### Discussion Points
-
--
-
-### Action Items
-
-- [ ]
+1. **Before a session** — Create a new HackMD note from the [template](https://github.com/hrydbeck/PLmicRO/blob/master/docs/hackmd_template.md) or pull an existing notes file
+2. **During the session** — Everyone edits the HackMD note collaboratively (share the URL)
+3. **After the session** — Push from HackMD to GitHub:
+   - In HackMD: **⋮ menu → Versions and GitHub Sync → Push**
+   - Select repo `PLmicRO`, branch `master`, and the target file path (e.g. `notes/ai_ml/session1_ml_guide_notes.md`)
+4. **Update this page** — Add the HackMD link to the table above so everyone can find it
 
 ---
 
-## Session 5 — Deep Learning in Genomics
+## Reference Materials
 
-**Papers:**
-- Eraslan et al. (2019) — *Deep learning: new computational modelling techniques for genomics*, Nature Reviews Genetics
-- Camacho et al. (2018) — *Next-Generation Machine Learning for Biological Networks*, Cell
-
-### Key Concepts
-
--
-
-### Discussion Points
-
--
-
-### Action Items
-
-- [ ]
+- [Glossary](glossary) — Key terms and definitions
+- [AI Primer](ai-intro) — Introduction to AI, LLMs & agents
+- [Reading List](reading-list) — Papers organized by session
 
 ---
 
-## Session 6 — Genomic Surveillance & Taxonomic Profiling
-
-**Papers:**
-- Mäklin et al. (2021) — *Bacterial genomic epidemiology with mixed samples*, Microbial Genomics
-- Ye et al. (2019) — *Benchmarking Metagenomics Tools for Taxonomic Classification*, Cell
-
-### Key Concepts
-
--
-
-### Discussion Points
-
--
-
-### Action Items
-
-- [ ]
+*[Edit this page on GitHub](https://github.com/hrydbeck/PLmicRO/edit/master/docs/notes.md)*
