@@ -26,8 +26,8 @@ Collaborative notes from each journal club session. We draft notes in [HackMD](h
 Finished session notes are stored in the repo by topic:
 
 ### AI & Machine Learning
-- [Session 1 — ML Guide for Biologists](notes/session1/)
-- [RareCollab — Agentic Diagnostics](notes/rarecollab/)
+- [Session 1 — ML Guide for Biologists](session1/)
+- [RareCollab — Agentic Diagnostics](rarecollab/)
 
 ### Clinical Microbiology
 *Coming soon*

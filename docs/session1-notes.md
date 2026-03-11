@@ -1,4 +1,4 @@
-]633;E;{ echo '---'\x3b   echo 'layout: page'\x3b   echo 'title: "Session 1 — ML Guide for Biologists"'\x3b   echo 'permalink: /notes/session1/'\x3b   echo '---'\x3b   echo ''\x3b   cat notes/ai_ml/session1_ml_guide_notes.md\x3b } > docs/session1-notes.md;af9fd577-405a-4917-817b-c4ddab6b31f9]633;C---
+---
 layout: page
 title: "Session 1 — ML Guide for Biologists"
 permalink: /notes/session1/

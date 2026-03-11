@@ -1,4 +1,4 @@
-]633;E;{ echo '---'\x3b   echo 'layout: page'\x3b   echo 'title: "RareCollab — Agentic Diagnostics"'\x3b   echo 'permalink: /notes/rarecollab/'\x3b   echo '---'\x3b   echo ''\x3b   cat notes/ai_ml/rarecollab_notes.md\x3b } > docs/rarecollab-notes.md;af9fd577-405a-4917-817b-c4ddab6b31f9]633;C---
+---
 layout: page
 title: "RareCollab — Agentic Diagnostics"
 permalink: /notes/rarecollab/
@@ -6,13 +6,13 @@ permalink: /notes/rarecollab/
 
 # PLmicRO Journal Club — RareCollab
 
-📅 **Date:**  
-📄 **Paper:**  
-- Qi G, Wang J, Chong ML, Shaik Z, Li S et al. (2026) — *RareCollab — An Agentic System Diagnosing Mendelian Disorders with Integrated Phenotypic and Molecular Evidence*, arXiv preprint  
+📅 **Date:**
+📄 **Paper:**
+- Qi G, Wang J, Chong ML, Shaik Z, Li S et al. (2026) — *RareCollab — An Agentic System Diagnosing Mendelian Disorders with Integrated Phenotypic and Molecular Evidence*, arXiv preprint
   DOI/Link: [arXiv:2602.04058](https://arxiv.org/abs/2602.04058)
 
-👥 **Attendees:** (add your name)  
--  
+👥 **Attendees:** (add your name)
+-
 
 ---
 
@@ -63,7 +63,7 @@ permalink: /notes/rarecollab/
 
 *Key findings and figures worth discussing*
 
--  
+-
 
 ---
 
@@ -107,7 +107,7 @@ permalink: /notes/rarecollab/
 
 ## Action Items
 
-- [ ]  
+- [ ]
 
 ---
 
