@@ -42,6 +42,21 @@
 - **AUC-ROC** — threshold-independent measure of classifier quality
 - **Confusion matrix** — the foundation for understanding all other metrics
 
+### Where do LLMs fit?
+- This paper predates the LLM revolution (ChatGPT launched Nov 2022, paper submitted earlier) — **LLMs are not explicitly covered**
+- But the building blocks are all here:
+
+| Paper's concept | How it connects to LLMs |
+|---|---|
+| Neural networks (deep learning section) | LLMs are neural networks — just very large ones |
+| RNNs (recurrent neural networks) | The predecessor for sequence/language tasks — LLMs replaced these |
+| Transformers (brief mention) | The architecture LLMs are built on (GPT = "Generative Pre-trained **Transformer**") |
+| Self-supervised learning | Exactly how LLMs are trained: predict the next word from unlabeled text |
+| Transfer learning | How LLMs work in practice: pre-train on general text, then fine-tune or prompt for specific tasks |
+
+- The evolution: **RNN → Transformer → BERT (2018) → GPT-3 (2020) → ChatGPT (2022) → GPT-4 (2023) → agentic systems (2024–)**
+- See [AI Primer](https://hrydbeck.github.io/PLmicRO/ai-intro/) for what happened after this paper was published
+
 ### Data handling best practices
 - Train / validation / test split — why you need all three
 - Cross-validation — robust performance estimation with limited data
@@ -79,6 +94,11 @@
 4. How does the paper's advice on data splitting apply to biological datasets that are often small?
 5. Which ML method category seems most relevant to your own work, and why?
 
+### Where are the LLMs?
+6. The paper covers the foundations (neural networks, transformers, self-supervised learning, transfer learning) but was published before the LLM explosion. How does what we now know about LLMs change the paper's recommendations?
+7. The paper advises matching method to data type. Where do LLMs fit — are they a new category, or a scaled-up version of existing methods?
+8. What does the paper miss that the [AI Primer](https://hrydbeck.github.io/PLmicRO/ai-intro/) covers? (prompt engineering, RLHF, agentic AI, generalist vs. specialist tradeoff)
+
 ### Additional questions
 - 💬
 -
@@ -89,9 +109,10 @@
 
 | ✅ Strengths | ⚠️ Limitations |
 |---|---|
-| Broad accessible overview for biologists | |
-| Good coverage of practical pitfalls | |
-| | |
+| Broad accessible overview for biologists | Published pre-LLM era — misses the biggest shift in AI |
+| Good coverage of practical pitfalls | Limited coverage of transformers, which now dominate |
+| Strong biological examples throughout | Doesn't address prompt engineering, RLHF, or agentic AI |
+| Provides foundational vocabulary for all later sessions | Some advice may need updating (e.g. "when to use deep learning") |
 
 ---
 
