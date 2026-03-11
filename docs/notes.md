@@ -21,13 +21,13 @@ Collaborative notes from each journal club session. We draft notes in [HackMD](h
 
 ---
 
-## Archived Notes (GitHub)
+## Session Notes
 
 Finished session notes are stored in the repo by topic:
 
 ### AI & Machine Learning
-- [Session 1 — ML Guide for Biologists](https://github.com/hrydbeck/PLmicRO/blob/master/notes/ai_ml/session1_ml_guide_notes.md)
-- [RareCollab — Agentic Diagnostics](https://github.com/hrydbeck/PLmicRO/blob/master/notes/ai_ml/rarecollab_notes.md)
+- [Session 1 — ML Guide for Biologists](notes/session1/)
+- [RareCollab — Agentic Diagnostics](notes/rarecollab/)
 
 ### Clinical Microbiology
 *Coming soon*
@@ -52,7 +52,8 @@ Finished session notes are stored in the repo by topic:
 2. **During the session** — Everyone edits the HackMD note collaboratively (share the URL)
 3. **After the session** — Push from HackMD to GitHub:
    - In HackMD: **⋮ menu → Versions and GitHub Sync → Push**
-   - Select repo `PLmicRO`, branch `master`, and the target file path (e.g. `notes/ai_ml/session1_ml_guide_notes.md`)
+   - Select repo `PLmicRO`, branch `master`, and the target file path under `docs/` (e.g. `docs/session1-notes.md`)
+   - **Important:** Push to the `docs/*.md` file so it renders on the site. Keep the Jekyll front matter (the `---` block at the top) intact.
 4. **Update this page** — Add the HackMD link to the table above so everyone can find it
 
 ---
