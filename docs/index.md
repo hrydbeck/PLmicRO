@@ -10,6 +10,17 @@ permalink: /
 
 Welcome! We're a reading group at the intersection of precision medicine, clinical microbiology, and bioinformatics. We read and discuss papers on analytical methods, computational approaches, and translational science that shape modern microbiology.
 
+```
+     📄 📄 📄  → future
+          │
+       PLmicRO
+          │
+          PL
+     /    |    \
+Micro    Pato    Sällsynta
+biologi  logi    sjukdomar
+```
+
 ---
 
 ## How It Works
