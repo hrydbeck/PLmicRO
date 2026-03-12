@@ -72,6 +72,80 @@ This is a central question for our journal club: **When is a massive general mod
 
 ---
 
+## The Transformer Architecture
+
+Every modern LLM is built on the **transformer** — an architecture introduced in 2017 that revolutionized AI. Understanding it helps explain why LLMs work the way they do.
+
+### The problem transformers solved
+
+Before transformers, language models used **Recurrent Neural Networks (RNNs)** that processed text one word at a time, left to right. This had two big limitations:
+
+1. **Slow** — you can't parallelize; each word depends on the previous one
+2. **Forgetful** — by the time the model reaches word 500, it has largely forgotten word 1
+
+### The key idea: Attention
+
+The transformer's breakthrough is the **attention mechanism** — instead of reading sequentially, it looks at **all words simultaneously** and learns which ones are relevant to each other.
+
+When processing the sentence *"The antibiotic resistance gene was found on a plasmid that transferred between species"*, the model can directly connect "gene" to "transferred" even though they're far apart — without having to remember through all the words in between.
+
+### How it works (simplified)
+
+```
+Input text
+    ↓
+[Tokenize] — split into tokens
+    ↓
+[Embedding] — convert each token to a numeric vector
+    ↓
+[Self-attention × N layers] — each token "looks at" all others,
+    learns which are relevant, updates its representation
+    ↓
+[Output] — predict next token (or classification, etc.)
+```
+
+The "self-attention" step is where the magic happens. For each token, the model computes:
+
+- **Query**: "What am I looking for?"
+- **Key**: "What do I contain?"
+- **Value**: "What information do I provide?"
+
+Every token's query is matched against every other token's key to produce attention weights — a score for how much each token should influence the current one. This is computed in parallel for all tokens, making transformers much faster than RNNs.
+
+### Why this matters
+
+| Property | RNN (old) | Transformer (new) |
+|---|---|---|
+| Processing | Sequential (slow) | Parallel (fast) |
+| Long-range connections | Weak (forgets) | Strong (attention) |
+| Training speed | Slow | Fast (GPU-friendly) |
+| Scalability | Limited | Scales to billions of parameters |
+
+This scalability is why transformers enabled the jump from models with millions of parameters to models with hundreds of billions — and why the LLM revolution happened.
+
+### The family tree
+
+The transformer spawned two major families:
+
+- **Encoder models** (e.g. BERT) — read the whole input at once, good for **understanding** tasks (classification, named entity recognition)
+- **Decoder models** (e.g. GPT) — generate text one token at a time, good for **generation** tasks (chatbots, text completion, code generation)
+- **Encoder-decoder models** (e.g. T5) — combine both, used for translation and summarization
+
+Most modern LLMs (GPT-4, Claude, LLaMA) are **decoder-only** transformers — optimized for generating text.
+
+### Timeline
+
+| Year | Milestone |
+|---|---|
+| 2017 | Transformer introduced ("Attention Is All You Need") |
+| 2018 | BERT (encoder) — first big pre-trained language model |
+| 2018 | GPT-1 (decoder) — OpenAI's first generative model |
+| 2020 | GPT-3 — 175B parameters, few-shot learning emerges |
+| 2022 | ChatGPT — transformers go mainstream |
+| 2023+ | GPT-4, Claude, LLaMA, Gemini — rapid scaling and specialization |
+
+---
+
 ## From language models to AI agents
 
 A standard LLM just generates text — it reads a prompt and writes a response. An **AI agent** goes further:
