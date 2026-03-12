@@ -12,7 +12,7 @@ Collaborative notes from each journal club session. We draft notes in [HackMD](h
 
 | Session | Paper | HackMD Link |
 |---|---|---|
-| Session 1 | Greener et al. (2022) — *A guide to machine learning for biologists* | [Open in HackMD](https://hackmd.io) *(update link after creating note)* |
+| Session 1 | Greener et al. (2022) — *A guide to machine learning for biologists* | [Open in HackMD](https://hackmd.io/4N-hZ4GQTTmWFYy5ZS9vTg) |
 | RareCollab | Qi et al. (2026) — *RareCollab — Agentic System for Mendelian Disorders* | [Open in HackMD](https://hackmd.io) *(update link after creating note)* |
 
 > **Tip:** Replace the HackMD links above with the actual note URLs once created. Use **⋮ → Versions and GitHub Sync → Push** in HackMD to sync notes back here.
