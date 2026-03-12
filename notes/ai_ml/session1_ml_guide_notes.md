@@ -15,6 +15,9 @@
 *What should we look for while reading?*
 
 - How do the authors categorize the landscape of ML methods — what's the "taxonomy"?
+
+    :arrow_right: 
+    
 - Which evaluation metrics matter most, and when is accuracy misleading?
 - What is overfitting, and how do you detect and prevent it?
 - Which ML methods map to which data types (images, sequences, tabular)?
@@ -89,10 +92,13 @@
 
 ### From the reading guide
 1. What is the difference between a model that *memorizes* vs. one that *generalizes*?
-2. When would you pick a simple model (e.g. random forest) over a deep neural network?
-3. What evaluation metric would you use for a clinical microbiology classification task with rare positive cases (e.g. detecting a resistant strain)? Why not just accuracy?
-4. How does the paper's advice on data splitting apply to biological datasets that are often small?
-5. Which ML method category seems most relevant to your own work, and why?
+
+    :speech_balloon: gsdsdfd
+
+3. When would you pick a simple model (e.g. random forest) over a deep neural network?
+4. What evaluation metric would you use for a clinical microbiology classification task with rare positive cases (e.g. detecting a resistant strain)? Why not just accuracy?
+5. How does the paper's advice on data splitting apply to biological datasets that are often small?
+6. Which ML method category seems most relevant to your own work, and why?
 
 ### Where are the LLMs?
 6. The paper covers the foundations (neural networks, transformers, self-supervised learning, transfer learning) but was published before the LLM explosion. How does what we now know about LLMs change the paper's recommendations?
