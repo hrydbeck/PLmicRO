@@ -4,8 +4,6 @@ title: Session Notes
 permalink: /notes/
 ---
 
-# Session Notes
-
 Collaborative notes from each journal club session. We draft notes in [HackMD](https://hackmd.io) during sessions and archive them here.
 
 ---
@@ -21,9 +19,7 @@ Collaborative notes from each journal club session. We draft notes in [HackMD](h
 
 ---
 
-## Session Notes
-
-Finished session notes are stored in the repo by topic:
+## Archived Notes by Topic
 
 ### AI & Machine Learning
 - [Session 1 — ML Guide for Biologists](session1/)
