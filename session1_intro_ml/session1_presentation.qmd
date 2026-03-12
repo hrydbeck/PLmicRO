@@ -1,0 +1,314 @@
+---
+title: "Session 1 — A Guide to Machine Learning for Biologists"
+subtitle: "PLmicRO Journal Club"
+author: "PLmicRO"
+date: 2026-03-12
+format:
+  revealjs:
+    theme: dark
+    slide-number: true
+    transition: fade
+    width: 1280
+    height: 720
+    footer: "PLmicRO Journal Club — Session 1"
+    embed-resources: true
+---
+
+## The Paper
+
+**Greener JG, Kandathil SM, Moffat L, Jones DT (2022)**
+
+*A guide to machine learning for biologists*
+
+Nature Reviews Molecular Cell Biology
+
+DOI: [10.1038/s41580-021-00407-0](https://doi.org/10.1038/s41580-021-00407-0)
+
+::: {.notes}
+Review/tutorial paper aimed at biologists entering ML. Not a research paper — covers supervised learning, unsupervised learning, deep learning, evaluation, and best practices with biological examples.
+:::
+
+---
+
+## Pre-reading Questions
+
+1. How do the authors categorize the landscape of ML methods — what's the "taxonomy"?
+2. Which evaluation metrics matter most, and when is accuracy misleading?
+3. What is overfitting, and how do you detect and prevent it?
+4. Which ML methods map to which data types (images, sequences, tabular)?
+5. What practical best practices can we apply in our own work?
+
+---
+
+## The ML Taxonomy
+
+```{mermaid}
+%%| fig-width: 10
+flowchart TD
+    ML["Machine Learning"]
+    ML --> SL["Supervised Learning"]
+    ML --> UL["Unsupervised Learning"]
+    ML --> SSL["Self-supervised Learning"]
+    SL --> Class["Classification"]
+    SL --> Reg["Regression"]
+    SL --> CML["Classical ML<br/>Random Forest, SVM,<br/>Logistic Regression"]
+    SL --> DL["Deep Learning<br/>CNN, RNN, Transformer"]
+    UL --> Clust["Clustering<br/>k-means, DBSCAN"]
+    UL --> DimRed["Dimensionality Reduction<br/>PCA, t-SNE, UMAP"]
+    SSL --> Pretrain["Pre-training on<br/>unlabeled data"]
+
+    style ML fill:#2a6496,color:#fff
+    style SL fill:#3a7ca5,color:#fff
+    style UL fill:#3a7ca5,color:#fff
+    style SSL fill:#3a7ca5,color:#fff
+```
+
+::: {.notes}
+Q1 answer: The paper organizes ML into supervised, unsupervised, and self-supervised. Within supervised, classical ML vs deep learning.
+:::
+
+---
+
+## Which Method for Which Data?
+
+| Data Type | Examples in Our Work | Recommended Methods |
+|---|---|---|
+| **Tabular / clinical** | Patient variables, AST results | Random Forest, Logistic Regression, XGBoost |
+| **Images** | MALDI-TOF spectra, microscopy | CNN (Convolutional Neural Networks) |
+| **Sequences** | Genomic data, protein sequences | RNN → Transformer |
+| **Text** | Clinical notes, literature | LLMs (Transformer-based) |
+| **Mixed** | Multi-modal clinical data | Ensemble / hybrid approaches |
+
+---
+
+## Evaluation Metrics — Beyond Accuracy
+
+::: {.columns}
+::: {.column width="50%"}
+
+### Why accuracy is misleading
+
+If 99% of samples are negative:
+
+- A model that **always says "negative"** gets **99% accuracy**
+- But it's **completely useless** for detecting resistant strains
+
+:::
+::: {.column width="50%"}
+
+### Better metrics
+
+| Metric | What it measures |
+|---|---|
+| **Precision** | Of predicted positives, how many are true? |
+| **Recall** | Of actual positives, how many did we find? |
+| **F1** | Harmonic mean of precision & recall |
+| **AUC-ROC** | Threshold-independent quality |
+
+:::
+:::
+
+---
+
+## The Confusion Matrix
+
+|  | **Predicted Positive** | **Predicted Negative** |
+|---|---|---|
+| **Actually Positive** | ✅ True Positive (TP) | ❌ False Negative (FN) |
+| **Actually Negative** | ❌ False Positive (FP) | ✅ True Negative (TN) |
+
+<br>
+
+$$\text{Precision} = \frac{TP}{TP + FP} \qquad \text{Recall} = \frac{TP}{TP + FN}$$
+
+$$F_1 = 2 \cdot \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$$
+
+---
+
+## Overfitting vs. Generalization
+
+::: {.columns}
+::: {.column width="50%"}
+
+### Overfitting = Memorization
+
+- High training accuracy
+- Low test accuracy
+- Model learns noise, not patterns
+
+### Key signs
+
+- Training loss keeps dropping
+- Validation loss starts **increasing**
+- Performance collapses on new data
+
+:::
+::: {.column width="50%"}
+
+### Prevention strategies
+
+1. **Cross-validation** — robust estimation
+2. **Regularization** — penalize complexity
+3. **Early stopping** — stop before overfitting
+4. **More data** — the simplest cure
+5. **Simpler model** — sometimes RF beats DNN
+
+:::
+:::
+
+---
+
+## Data Handling Best Practices
+
+### The three-way split
+
+```{mermaid}
+%%| fig-width: 9
+flowchart LR
+    D["All Data"] --> Train["Training Set<br/>~60-70%<br/>Model learns"]
+    D --> Val["Validation Set<br/>~15-20%<br/>Tune hyperparams"]
+    D --> Test["Test Set<br/>~15-20%<br/>Final eval ONLY"]
+
+    style D fill:#2a6496,color:#fff
+    style Train fill:#27ae60,color:#fff
+    style Val fill:#f39c12,color:#fff
+    style Test fill:#e74c3c,color:#fff
+```
+
+### Dangers
+
+- **Data leakage** — test info bleeds into training
+- **No independent test set** — reporting validation as final results
+- **Small biological datasets** — use k-fold cross-validation
+
+---
+
+## Simple vs. Complex Models
+
+| Choose **Random Forest / SVM** when... | Choose **Deep Learning** when... |
+|---|---|
+| Small dataset (< 1000 samples) | Large dataset (> 10,000 samples) |
+| Tabular / structured features | Raw images, sequences, spectra |
+| Interpretability matters | Performance is the priority |
+| Quick prototyping needed | Complex patterns in data |
+| Features are well-defined | Features need to be learned |
+
+::: {.callout-tip}
+## Rule of thumb
+Start simple. Only move to deep learning when simpler approaches are insufficient.
+:::
+
+---
+
+## Where Do LLMs Fit?
+
+Paper predates LLM explosion (ChatGPT: Nov 2022) — **not explicitly covered**.
+
+But the building blocks are all here:
+
+| Paper's concept | Connection to LLMs |
+|---|---|
+| Neural networks | LLMs are neural networks — just very large |
+| RNNs | Predecessor for language — LLMs replaced these |
+| Transformers (brief mention) | **The** architecture LLMs are built on |
+| Self-supervised learning | How LLMs train: predict next word |
+| Transfer learning | Pre-train generally, fine-tune specifically |
+
+---
+
+## The Evolution Timeline
+
+```{mermaid}
+%%| fig-width: 11
+timeline
+    title From Paper to Present
+    2017 : Transformer architecture (Vaswani et al.)
+    2018 : BERT — first big pre-trained LM
+    2020 : GPT-3 — 175B params
+    2021 : This paper submitted
+    2022 : Paper published
+         : ChatGPT launched
+    2023 : GPT-4
+    2024 : Agentic AI emerges
+    2025-2026 : AI agents in clinical workflows
+```
+
+---
+
+## Strengths & Limitations
+
+::: {.columns}
+::: {.column width="50%"}
+
+### ✅ Strengths
+
+- Broad, accessible overview for biologists
+- Good coverage of practical pitfalls
+- Strong biological examples throughout
+- Foundational vocabulary for all later sessions
+
+:::
+::: {.column width="50%"}
+
+### ⚠️ Limitations
+
+- Pre-LLM era — misses biggest AI shift
+- Limited transformer coverage
+- No prompt engineering, RLHF, or agentic AI
+- Some advice may need updating
+
+:::
+:::
+
+---
+
+## Relevance to Our Work
+
+**Data type → method mapping** directly applies:
+
+- MALDI-TOF spectra → CNN
+- Genomic sequences → RNN / Transformer
+- Clinical variables → Random Forest
+
+### Connections to later sessions
+
+| Session | Connection |
+|---|---|
+| **Session 2** (Topçuoğlu) | Evaluation/benchmarking concepts |
+| **Session 4** (MALDI-TOF + ML) | Clinical CNN & random forest |
+| **Session 5** (Deep Learning in Genomics) | Neural network architectures |
+
+---
+
+## Discussion Questions
+
+::: {.incremental}
+
+1. What is the difference between *memorization* vs. *generalization*?
+2. When would you pick a simple model over a deep neural network?
+3. What metric for detecting a resistant strain? Why not accuracy?
+4. How does data splitting apply to small biological datasets?
+5. Which ML method is most relevant to **your** work?
+6. How do LLMs change the paper's recommendations?
+7. Where do LLMs fit — new category or scaled-up existing methods?
+
+:::
+
+---
+
+## Resources
+
+- 📄 [Paper](https://doi.org/10.1038/s41580-021-00407-0)
+- 📖 [Glossary](https://hrydbeck.github.io/PLmicRO/glossary/)
+- 🤖 [AI Primer](https://hrydbeck.github.io/PLmicRO/ai-intro/)
+- 📝 [Session Notes (HackMD)](https://hackmd.io/4N-hZ4GQTTmWFYy5ZS9vTg)
+
+---
+
+## {.center}
+
+### Thank you!
+
+**Next session:** Benchmarking & Comparing AI Models
+
+Topçuoğlu et al. (2020) — *A Framework for Effective Application of Machine Learning to Microbiome-Based Classification Problems*

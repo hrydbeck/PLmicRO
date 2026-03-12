@@ -144,6 +144,13 @@ permalink: /notes/session1/
 
 ---
 
+## Presentation Slides
+
+- [Concepts slideshow]({{ '/slides/session1_presentation.html' | relative_url }}) — key concepts, diagrams, and discussion prompts
+- [Figures from the paper]({{ '/slides/session1_figures.html' | relative_url }}) — all 7 key figures for group discussion
+
+---
+
 ## Resources & Links
 
 - [Paper (DOI)](https://doi.org/10.1038/s41580-021-00407-0)

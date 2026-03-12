@@ -1,0 +1,83 @@
+---
+title: "Session 1 — Figures from the Paper"
+subtitle: "Greener et al. (2022) — A Guide to Machine Learning for Biologists"
+author: "PLmicRO Journal Club"
+date: 2026-03-12
+format:
+  revealjs:
+    theme: dark
+    slide-number: true
+    transition: fade
+    width: 1280
+    height: 720
+    footer: "PLmicRO Journal Club — Session 1 (Figures)"
+    embed-resources: true
+---
+
+## Figure 1
+
+![](images/fig1.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: What is the main message of this figure? How does it help organize our thinking about ML?
+:::
+
+---
+
+## Figure 2
+
+![](images/fig2.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: What key concepts does this figure illustrate? How does it connect to our work?
+:::
+
+---
+
+## Figure 3
+
+![](images/fig3.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: What does this figure tell us about the methods? Which parts are most relevant to clinical microbiology?
+:::
+
+---
+
+## Figure 4
+
+![](images/fig4.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: How does this figure connect to the evaluation and benchmarking concepts we need for Session 2?
+:::
+
+---
+
+## Figure 5
+
+![](images/fig5.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: What practical takeaways can we draw from this figure?
+:::
+
+---
+
+## Figure 6
+
+![](images/fig6.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: How does this figure relate to our clinical microbiology applications?
+:::
+
+---
+
+## Figure 7
+
+![](images/fig7.png){fig-align="center" height="550"}
+
+::: {.notes}
+Discuss: What is the key message here? How can we apply this in our own work?
+:::
