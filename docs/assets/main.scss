@@ -55,7 +55,7 @@
 .sidebar-link {
   display: block;
   padding: 9px 20px;
-  color: #e0e4ec;
+  color: #d5d9e2;
   text-decoration: none;
   font-size: 0.9em;
   transition: background 0.15s, color 0.15s;
@@ -69,12 +69,10 @@
 }
 
 .sidebar-link.active {
-  background: #0f1b30;
+  background: none;
   color: #fff;
-  font-size: 1.05em;
-  font-weight: bold;
-  border-left: 3px solid #4a90d9;
-  padding-left: 17px;
+  text-decoration: underline;
+  
 }
 
 /* Main content area */
