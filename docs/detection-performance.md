@@ -8,6 +8,29 @@ A practical guide to evaluating how well a classifier or detection algorithm per
 
 ---
 
+## Why Not Just Use Accuracy?
+
+The most intuitive performance metric is **accuracy** — the fraction of all predictions that are correct:
+
+$$	ext{Accuracy} = rac{TP + TN}{TP + TN + FP + FN}$$
+
+It sounds reasonable: out of everything the model classified, how many did it get right? The problem is that accuracy **hides critical failures** when classes are imbalanced — which they almost always are in clinical and genomic applications.
+
+### A concrete example
+
+Imagine a variant caller processing 1,000,000 genomic positions, where only 1,000 are true variants (0.1%):
+
+| Classifier | Strategy | TP | FP | FN | TN | Accuracy |
+|---|---|---|---|---|---|---|
+| **Model A** | Always says "wildtype" | 0 | 0 | 1,000 | 999,000 | **99.9%** |
+| **Model B** | Actually detects variants | 950 | 200 | 50 | 998,800 | **99.97%** |
+
+Model A achieves 99.9% accuracy by doing **absolutely nothing useful** — it misses every single variant. A clinician relying on accuracy alone might think this tool works brilliantly.
+
+This is why we need metrics that separately measure **how well we find positives** (recall) and **how trustworthy our positive calls are** (precision). The rest of this page covers those metrics.
+
+---
+
 ## The Setup: Binary Classification
 
 Many real-life tasks boil down to sorting things into two groups:
