@@ -162,6 +162,49 @@ This is a central question for our journal club: **When is a massive general mod
 
 ---
 
+## Generative vs Discriminative Models
+
+You'll hear the term "generative AI" everywhere — but what does *generative* actually mean in machine learning?
+
+### Two fundamentally different approaches
+
+A **discriminative model** learns the boundary between classes. Given an input $x$, it predicts a label $y$ — essentially learning $P(y|x)$. It answers: *"What category does this belong to?"*
+
+A **generative model** learns the underlying distribution of the data itself — $P(x)$ or $P(x, y)$. Because it models how data is *produced*, it can generate new samples that resemble the training data. It answers: *"What does this kind of data look like?"*
+
+| | Generative | Discriminative |
+|---|---|---|
+| **Learns** | The data distribution $P(x)$ | The decision boundary $P(y \| x)$ |
+| **Can produce new data?** | Yes | No |
+| **Classic examples** | Naive Bayes, Hidden Markov Models, Gaussian mixture models | Logistic regression, SVM, random forest |
+| **Deep learning examples** | GANs, VAEs, diffusion models | ResNet (image classifier), BERT (classifier) |
+| **Modern LLM examples** | GPT, Claude, LLaMA, Gemini | Fine-tuned BERT for sentiment classification |
+
+### Why LLMs are generative models
+
+LLMs are generative because they learn to model $P(\text{next token} | \text{previous tokens})$ — the probability distribution over what comes next in a sequence. At inference time, they *sample* from this distribution to produce text one token at a time. This is why they can write, summarize, translate, and reason.
+
+But this is also why they **hallucinate**: they're sampling from a learned distribution, not looking up facts in a database. A sequence that is statistically plausible may be factually wrong.
+
+### Generative models beyond text
+
+The generative principle extends far beyond language:
+
+- **Image generation** (Stable Diffusion, DALL·E) — learns the distribution of images, generates new ones from text prompts
+- **Protein design** (RFdiffusion) — generates novel protein structures by modeling structural distributions
+- **Drug discovery** — generative chemistry models propose new molecules with desired properties
+- **Synthetic data** — generative models create realistic training data when real data is scarce or sensitive (e.g., synthetic patient records)
+
+### When to use which
+
+**Use discriminative** when you need to classify, predict, or rank — and you only care about the answer, not about generating new examples. These models are typically simpler and need less training data.
+
+**Use generative** when you need to create content, model complex distributions, augment data, or perform tasks that require open-ended reasoning. These models are more powerful but also more expensive and prone to hallucination.
+
+> **Key insight:** The Greener et al. paper focuses almost entirely on discriminative tasks (classification, regression). The "generative AI" revolution that followed is fundamentally about generative models at scale.
+
+---
+
 ## The Transformer Architecture
 
 Every modern LLM is built on the **transformer** — an architecture introduced in 2017 that revolutionized AI. Understanding it helps explain why LLMs work the way they do.
