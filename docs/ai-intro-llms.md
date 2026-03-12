@@ -70,6 +70,64 @@ This is why the parameter count alone doesn't tell you how fast or expensive a m
 
 ---
 
+## Emergent Abilities: When Scale Creates Surprises
+
+One of the most striking — and debated — findings in modern AI is that certain capabilities appear to **emerge** only when models reach a sufficient scale. They are absent in smaller models and then seem to switch on, sometimes abruptly, as models grow.
+
+### When did researchers notice?
+
+The story unfolded gradually, then all at once:
+
+**2020 — GPT-3 and "few-shot learning."** When OpenAI scaled from GPT-2 (1.5B parameters) to GPT-3 (175B), they discovered something unexpected: GPT-3 could perform tasks it was never explicitly trained for, simply by being shown a few examples in the prompt. Translation, arithmetic, code generation — none of these were trained objectives, yet the model could do them. Smaller models in the same family could not. This was documented in Brown et al. (2020), *"Language Models are Few-Shot Learners"* ([arXiv:2005.14165](https://arxiv.org/abs/2005.14165)).
+
+**2022 — The landmark survey.** Jason Wei and colleagues at Google systematically catalogued this phenomenon across 200+ tasks and multiple model families. Their paper, *"Emergent Abilities of Large Language Models"* ([arXiv:2206.07682](https://arxiv.org/abs/2206.07682)), showed a consistent pattern: on many benchmarks, performance stayed near random as models scaled up — until a critical size threshold, after which performance jumped sharply. They called these **emergent abilities** because they were "not present in smaller models but are present in larger models."
+
+Key examples from the paper:
+
+| Ability | Appears around | Absent below |
+|---|---|---|
+| Multi-step arithmetic | ~100B parameters | Random at 10B |
+| Chain-of-thought reasoning | ~60–100B parameters | Fails at smaller scales |
+| Word unscrambling | ~60B parameters | Near zero below |
+| Following complex instructions | ~100B+ parameters | Unreliable below |
+
+**2022–2023 — The ChatGPT moment.** When ChatGPT (based on GPT-3.5) launched in November 2022, the general public experienced emergent abilities firsthand — the model could hold coherent conversations, write essays, explain code, and reason through problems in ways that felt qualitatively different from any prior chatbot.
+
+### What causes emergence?
+
+This is still debated. The leading hypotheses:
+
+1. **Sufficient internal representations** — Below a certain scale, the model simply doesn't have enough capacity to build the internal patterns needed for complex reasoning. Above it, those patterns form and compose in powerful ways.
+
+2. **Composition of simpler skills** — Individual sub-skills (grammar, facts, logic) may each improve gradually, but the *combination* of multiple skills into a complex behavior only works when all sub-skills are above some minimum quality. One weak link breaks the chain.
+
+3. **Phase transitions in learning** — Analogous to physical phase transitions (water suddenly freezing at 0°C), the model's internal organization may undergo qualitative shifts at certain scales.
+
+### The counter-argument: Is emergence real?
+
+Not everyone is convinced. In a provocative 2023 paper, Schaeffer et al. (*"Are Emergent Abilities of Large Language Models a Mirage?"*, [arXiv:2304.15004](https://arxiv.org/abs/2304.15004)) argued that apparent emergence may be an artifact of how we *measure* performance. When using metrics with sharp thresholds (like exact-match accuracy — either the answer is perfectly right or it scores zero), a gradually improving model's scores can look like a sudden jump. With smoother metrics, improvement appears more gradual.
+
+This didn't settle the debate — some abilities still look genuinely emergent even with smooth metrics — but it added important nuance: **how you measure matters as much as what you measure** (a lesson that connects directly to our [detection performance]({{ '/primers/detection-performance/' | relative_url }}) primer).
+
+### Why this matters for us
+
+The emergence debate has practical consequences:
+
+- **For clinical applications:** If your task only requires narrow classification (e.g. species ID from MALDI-TOF), a small specialized model will work. If you need flexible reasoning over complex evidence (e.g. RareCollab's variant interpretation), you may need a model large enough for emergent reasoning abilities.
+- **For benchmarking:** When evaluating AI tools, the choice of metric can make a model look like it suddenly got better or like it gradually improved — echoing the Schaeffer critique.
+- **For the future:** If emergence is real, we should expect further capability jumps as models scale. If it's partly a measurement artifact, we should invest more in better evaluation methods.
+
+### Key references
+
+| Year | Paper | Key contribution |
+|---|---|---|
+| 2020 | Brown et al. — *Language Models are Few-Shot Learners* ([arXiv:2005.14165](https://arxiv.org/abs/2005.14165)) | Discovered few-shot learning in GPT-3; first major evidence of emergent abilities |
+| 2022 | Wei et al. — *Emergent Abilities of Large Language Models* ([arXiv:2206.07682](https://arxiv.org/abs/2206.07682)) | Systematic survey of 200+ tasks showing sharp capability transitions at scale |
+| 2022 | Wei et al. — *Chain-of-Thought Prompting Elicits Reasoning* ([arXiv:2201.11903](https://arxiv.org/abs/2201.11903)) | Showed that step-by-step prompting unlocks reasoning — but only in sufficiently large models |
+| 2023 | Schaeffer et al. — *Are Emergent Abilities a Mirage?* ([arXiv:2304.15004](https://arxiv.org/abs/2304.15004)) | Challenged emergence; argued metric choice creates the illusion of sudden jumps |
+
+---
+
 ## The spectrum: from small to large
 
 Not every problem needs a massive model. The right choice depends on the task:
