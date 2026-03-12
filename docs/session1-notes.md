@@ -25,6 +25,7 @@ permalink: /notes/session1/
 - What is overfitting, and how do you detect and prevent it?
 - Which ML methods map to which data types (images, sequences, tabular)?
 - What practical best practices can we apply in our own work?
+- In unsupervised learning, the paper says a cost function is still minimized even without ground truth — how is that possible? *(see [Glossary: Cost function](https://hrydbeck.github.io/PLmicRO/glossary/))*
 
 ---
 

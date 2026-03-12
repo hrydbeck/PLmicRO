@@ -37,6 +37,7 @@ Quick-reference glossary of terms that come up in our journal club papers. Organ
 | **Attention mechanism** | Lets the model focus on the most relevant parts of the input when producing each output. |
 | **Token** | The basic unit an LLM processes — roughly a word or subword (e.g. "microbiology" might be split into "micro" + "biology"). |
 | **Prompt** | The input text/instructions given to an LLM. |
+| **Cost function (loss function)** | The function a model minimizes during training. In **supervised** learning, it measures the gap between predictions and known correct answers (ground truth). In **unsupervised** learning, there are no labels — instead the cost function measures an internal consistency criterion: how well the model reconstructs its own input (autoencoders), how tight and separated its clusters are (k-means), or how well it predicts the probability of the data it sees (generative models). The data itself provides the signal, just not as human-provided labels. |
 | **Fine-tuning** | Adapting a pre-trained model to a specific task or domain using additional training data. |
 | **RAG (Retrieval-Augmented Generation)** | Combining an LLM with a knowledge retrieval step — the model looks up relevant documents before generating an answer. |
 | **Foundation model** | A large model pre-trained on broad data that can be adapted to many downstream tasks (e.g. GPT-4, ESM-2). |
