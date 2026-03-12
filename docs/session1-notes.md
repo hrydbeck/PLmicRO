@@ -146,8 +146,8 @@ permalink: /notes/session1/
 
 ## Presentation Slides
 
-- [Concepts slideshow]({{ '/slides/session1_presentation.html' | relative_url }}) — key concepts, diagrams, and discussion prompts
-- [Figures from the paper]({{ '/slides/session1_figures.html' | relative_url }}) — all 7 key figures for group discussion
+- [Concepts slideshow](https://hrydbeck.github.io/PLmicRO/slides/session1_presentation.html) — key concepts, diagrams, and discussion prompts
+- [Figures from the paper](https://hrydbeck.github.io/PLmicRO/slides/session1_figures.html) — all 7 key figures for group discussion
 
 ---
 
