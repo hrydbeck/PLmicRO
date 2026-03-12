@@ -36,6 +36,38 @@ Three things matter as much as (or more than) parameter count:
 2. **Architecture innovations** — Techniques like mixture-of-experts (MoE) activate only a fraction of the parameters per query, making models effectively "big but efficient."
 3. **Training compute** — How long and on how much data you train determines what the model actually learns.
 
+### Mixture-of-Experts (MoE)
+
+One of the most important architecture innovations is **Mixture-of-Experts (MoE)**. The idea is simple but powerful:
+
+Instead of one monolithic neural network where every parameter is used for every input, an MoE model contains many **specialist sub-networks ("experts")** and a **router** that decides which experts to activate for each input.
+
+```
+Input token
+    ↓
+[Router] — "Which experts should handle this?"
+    ↓
+Activates 2 of 8 experts (for example)
+    ↓
+Output (combined from selected experts)
+```
+
+**Why it matters:**
+
+- A model can have **hundreds of billions of total parameters** but only activate a small fraction per query — making it fast and efficient
+- Different experts can specialize in different types of knowledge (one might be good at code, another at biology)
+- It's how models can be "big" in knowledge capacity but "small" in compute cost per query
+
+**Real examples:**
+
+| Model | Total parameters | Active per query | Architecture |
+|---|---|---|---|
+| GPT-4 (rumored) | ~1.8 trillion | ~280B | 16 experts, activate 2 |
+| Mixtral 8x7B | 46.7B | 12.9B | 8 experts, activate 2 |
+| DeepSeek-V2 | 236B | 21B | 160 experts, activate 6 |
+
+This is why the parameter count alone doesn't tell you how fast or expensive a model is to run — an MoE model with 200B total parameters can be faster than a dense model with 70B.
+
 ---
 
 ## The spectrum: from small to large

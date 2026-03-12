@@ -33,6 +33,7 @@ Quick-reference glossary of terms that come up in our journal club papers. Organ
 |---|---|
 | **Large language model (LLM)** | A deep learning model trained on massive text data to understand and generate human language (e.g. GPT-4, Claude, LLaMA). |
 | **Transformer** | Architecture behind modern LLMs — uses attention mechanisms to weigh the importance of different parts of the input. |
+| **Mixture-of-Experts (MoE)** | Architecture where a model contains many specialist sub-networks ("experts") and a router that selects which to activate per input — allows models to be very large in total parameters but efficient per query. |
 | **Attention mechanism** | Lets the model focus on the most relevant parts of the input when producing each output. |
 | **Token** | The basic unit an LLM processes — roughly a word or subword (e.g. "microbiology" might be split into "micro" + "biology"). |
 | **Prompt** | The input text/instructions given to an LLM. |
