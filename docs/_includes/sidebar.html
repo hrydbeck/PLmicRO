@@ -11,5 +11,16 @@
         </li>
       {% endif %}
     {% endfor %}
+
+    <!-- Topic Primers (expandable) -->
+    <li class="sidebar-group">
+      <details{% if page.url contains '/ai-intro' or page.url contains '/primers/' %} open{% endif %}>
+        <summary class="sidebar-link sidebar-group-toggle">Topic Primers</summary>
+        <ul class="sidebar-subnav">
+          <li><a class="sidebar-link sidebar-sublink{% if page.url == '/PLmicRO/ai-intro/llms/' %} active{% endif %}" href="{{ '/ai-intro/llms/' | relative_url }}">AI, LLMs & Agents</a></li>
+          <li><a class="sidebar-link sidebar-sublink{% if page.url == '/PLmicRO/primers/detection-performance/' %} active{% endif %}" href="{{ '/primers/detection-performance/' | relative_url }}">Detection Performance</a></li>
+        </ul>
+      </details>
+    </li>
   </ul>
 </nav>
