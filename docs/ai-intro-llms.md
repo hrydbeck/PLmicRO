@@ -275,6 +275,90 @@ The field is moving from **AI as a classifier** (give it data, get a label) to *
 
 ---
 
+## Updating the Paper's Advice: What Has Changed?
+
+Greener et al. (2022) remains an excellent introduction to ML fundamentals, but the field has moved fast since the paper was submitted (early 2021). Here are specific pieces of advice from the paper that need updating, with what we know now.
+
+### 1. "When to use deep learning"
+
+**Paper's advice:** Use deep learning primarily when you have a large dataset and raw unstructured input (images, sequences). For small tabular datasets, stick with classical ML (random forest, SVM).
+
+**Update:** This is still *mostly* true for training models from scratch. But **transfer learning and foundation models** have changed the calculus. Today you can:
+
+- Use a **pre-trained model** (e.g. a protein language model like ESM-2, or a vision model like BiomedCLIP) and fine-tune it on a small dataset — getting deep learning performance without needing thousands of training samples
+- Use an **LLM with few-shot prompting** — no training data at all, just examples in the prompt
+- Use **small language models** (Phi-3, Gemma) that run on a laptop
+
+**New rule of thumb:** The question is no longer "do I have enough data for deep learning?" but "is there a pre-trained model close enough to my domain that I can adapt?"
+
+### 2. "RNNs for sequence data"
+
+**Paper's advice:** Recurrent neural networks (RNNs, LSTMs) are the natural choice for sequential data like protein sequences and genomic sequences.
+
+**Update:** RNNs have been almost entirely replaced by **transformers** for sequence tasks. This happened rapidly after the paper was written:
+
+| Year | Sequence modeling state-of-the-art |
+|---|---|
+| 2020 (paper written) | RNNs/LSTMs still common |
+| 2021 | AlphaFold 2 (transformer-based) wins protein structure prediction |
+| 2022–2023 | ESM-2, ProtTrans (protein language models) all transformer-based |
+| 2024+ | Even DNA/RNA models (Evo, Nucleotide Transformer) are transformers |
+
+**New advice:** For any sequence task (protein, DNA, RNA, clinical text), start with a **pre-trained transformer model** and fine-tune. RNNs are now largely historical.
+
+### 3. "Transformers" — a brief mention
+
+**Paper's advice:** Transformers get a brief mention as one architecture among many.
+
+**Update:** Transformers are now the **dominant architecture** across nearly all domains — not just NLP but also computer vision (ViT), protein structure (AlphaFold 2), genomics (Evo), and multimodal tasks. The paper couldn't have predicted this: the transformer revolution was just beginning when the paper was written. See our [Transformer Architecture]({{ '/ai-intro/llms/#the-transformer-architecture' | relative_url }}) section for details.
+
+### 4. "Self-supervised learning" — described as a niche technique
+
+**Paper's advice:** Self-supervised learning is presented as one of several training approaches, used mainly for pre-training feature extractors.
+
+**Update:** Self-supervised learning turned out to be the key that unlocked the entire LLM revolution. It's how GPT, Claude, LLaMA, and every modern LLM are trained: predict the next word from unlabeled text. This simple objective, applied at enormous scale, produces models with [emergent abilities]({{ '/ai-intro/llms/#emergent-abilities-when-scale-creates-surprises' | relative_url }}) that no one anticipated. Self-supervised learning is no longer niche — it's the foundation of modern AI.
+
+### 5. Missing: prompt engineering as a new paradigm
+
+**Not in the paper:** The concept of *using* a pre-trained model by writing natural language instructions (prompts) rather than training or fine-tuning.
+
+**What's changed:** For many tasks, you no longer need to train a model at all. Instead:
+
+```
+Old workflow:  Collect data → Label data → Train model → Evaluate → Deploy
+New workflow:  Write a prompt → Test → Iterate on prompt → Deploy
+```
+
+This doesn't replace all ML — you still need trained models for high-throughput tasks like variant calling or MALDI-TOF classification. But for reasoning tasks, literature review, report generation, and clinical decision support, prompt engineering is now a primary approach.
+
+### 6. Missing: hallucination as a failure mode
+
+**Not in the paper:** The paper covers overfitting, data leakage, and evaluation pitfalls — but not hallucination.
+
+**What's changed:** For any AI system that *generates* text (LLMs, clinical report drafters, literature summarizers), **hallucination** — producing confident-sounding but factually wrong output — is now recognized as the most dangerous failure mode. This is especially critical in clinical microbiology where a hallucinated antibiotic resistance finding could affect patient care. Any deployment of generative AI in a clinical setting must include hallucination detection and human verification.
+
+### 7. Missing: agentic AI
+
+**Not in the paper:** The idea that AI systems can autonomously plan, use tools, and execute multi-step workflows.
+
+**What's changed:** AI agents (like RareCollab from our reading list) represent a qualitative shift from "model as classifier" to "model as collaborator." This is covered in our [From language models to AI agents]({{ '/ai-intro/llms/#from-language-models-to-ai-agents' | relative_url }}) section.
+
+### Summary
+
+| Paper's advice (2022) | Updated advice (2025+) |
+|---|---|
+| Deep learning needs lots of data | Pre-trained models make small-data deep learning viable |
+| RNNs for sequences | Transformers for everything sequential |
+| Transformers are one option among many | Transformers dominate nearly all domains |
+| Self-supervised learning is niche | Self-supervised learning is the foundation of modern AI |
+| Train a model for each task | Prompt engineering can replace training for many tasks |
+| Main risks: overfitting, data leakage | Add hallucination as a critical failure mode |
+| AI classifies | AI reasons, plans, and uses tools (agents) |
+
+> **Bottom line:** The paper's ML fundamentals (evaluation metrics, overfitting, data splitting) remain completely valid. What's changed is the *landscape of what's possible* — and the dominant architectures and workflows for getting there.
+
+---
+
 ## Questions to keep in mind
 
 As you read papers in our journal club, consider:
