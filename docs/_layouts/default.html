@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title | escape }} — {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  <div class="site-wrapper">
+    {% include sidebar.html %}
+    <div class="site-main">
+      <main class="page-content" aria-label="Content">
+        {{ content }}
+      </main>
+      <footer class="site-footer">
+        <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
