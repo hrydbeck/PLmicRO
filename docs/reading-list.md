@@ -4,7 +4,6 @@ title: Journal Club Reading List
 permalink: /reading-list.html
 ---
 
-# Journal Club Reading List
 
 ## Series 1: AI & ML in Clinical Microbiology
 

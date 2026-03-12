@@ -4,7 +4,6 @@ title: Suggest a Paper
 permalink: /suggest/
 ---
 
-# Suggest a Paper
 
 We want papers that feel relevant to the whole group — that's why **anyone can suggest and everyone votes**.
 

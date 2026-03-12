@@ -4,7 +4,6 @@ title: Zotero Library
 permalink: /zotero/
 ---
 
-# Zotero Group Library
 
 We use a shared **Zotero group library** to collect and organise all papers for the journal club. Joining the group gives you access to the full collection — including PDFs, notes, and tags — and lets you add papers yourself.
 

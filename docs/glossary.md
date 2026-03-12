@@ -4,7 +4,6 @@ title: Glossary
 permalink: /glossary/
 ---
 
-# Glossary
 
 Quick-reference glossary of terms that come up in our journal club papers. Organized by topic — use Ctrl+F to search.
 

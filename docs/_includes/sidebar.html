@@ -1,0 +1,15 @@
+<nav class="site-sidebar">
+  <div class="sidebar-title">
+    <a href="{{ '/' | relative_url }}">PLmicRO<br>Journal Club</a>
+  </div>
+  <ul class="sidebar-nav">
+    {% for path in site.header_pages %}
+      {% assign my_page = site.pages | where: "path", path | first %}
+      {% if my_page.title %}
+        <li>
+          <a class="sidebar-link{% if page.url == my_page.url %} active{% endif %}" href="{{ my_page.url | relative_url }}">{{ my_page.title }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

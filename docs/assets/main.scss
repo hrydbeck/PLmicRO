@@ -3,33 +3,128 @@
 
 @import "minima";
 
-/* Stack site title above nav links on desktop */
-@media screen and (min-width: 600px) {
-  .site-header .wrapper {
-    display: flex;
+/* Hide minima's default top header */
+.site-header {
+  display: none;
+}
+
+/* Sidebar book-style layout */
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.site-sidebar {
+  width: 200px;
+  min-width: 200px;
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  padding: 10px 20px 20px;
+  border-bottom: 1px solid #3d566e;
+  margin-bottom: 10px;
+}
+
+.sidebar-title a {
+  color: #ecf0f1;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin: 0;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 8px 20px;
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-link:hover {
+  background: #34495e;
+  color: #fff;
+}
+
+.sidebar-link.active {
+  background: #1a252f;
+  color: #fff;
+  border-left: 3px solid #3498db;
+  padding-left: 17px;
+}
+
+/* Main content area */
+.site-main {
+  margin-left: 200px;
+  flex: 1;
+  padding: 30px 40px;
+  max-width: 900px;
+}
+
+.site-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+  color: #828282;
+  font-size: 0.85em;
+}
+
+/* Mobile: collapse sidebar to top bar */
+@media screen and (max-width: 768px) {
+  .site-wrapper {
     flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 0;
   }
 
-  .site-title {
-    float: none !important;
-    text-align: center;
+  .site-sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    position: static;
+    padding: 10px 0;
+  }
+
+  .sidebar-title {
+    padding: 5px 15px 10px;
+    border-bottom: 1px solid #3d566e;
     margin-bottom: 5px;
-    line-height: 1.4;
   }
 
-  .site-nav {
-    float: none !important;
-    text-align: center;
-    line-height: 1.4;
-    position: static !important;
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px;
   }
 
-  .site-nav .page-link {
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+  .sidebar-nav li {
+    margin: 0;
+  }
+
+  .sidebar-link {
+    padding: 5px 10px;
+    font-size: 0.85em;
+  }
+
+  .site-main {
+    margin-left: 0;
+    padding: 15px;
   }
 }
