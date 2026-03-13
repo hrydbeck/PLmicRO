@@ -12,7 +12,7 @@ A practical guide to evaluating how well a classifier or detection algorithm per
 
 The most intuitive performance metric is **accuracy** — the fraction of all predictions that are correct:
 
-$$	ext{Accuracy} = rac{TP + TN}{TP + TN + FP + FN}$$
+$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$
 
 It sounds reasonable: out of everything the model classified, how many did it get right? The problem is that accuracy **hides critical failures** when classes are imbalanced — which they almost always are in clinical and genomic applications.
 
