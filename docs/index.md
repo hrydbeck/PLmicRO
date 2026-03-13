@@ -53,4 +53,5 @@ biologi  logi    sjukdomar
 | 🤖 [AI Primer](ai-intro) | Introduction to AI, LLMs & agents |
 | 💡 [Suggest a Paper](suggest) | Propose new papers for the group |
 | 📚 [Zotero Library](zotero) | Join our shared library & share papers |
+| ❓ [How We Work](how-we-work) | What tools we use and why — the non-technical guide |
 | 🗳️ [Vote on Suggestions](https://ostergotland-my.sharepoint.com/personal/halfdan_rydbeck_regionostergotland_se/Lists/Paper%20Suggestions/AllItems.aspx) | Browse & vote with Likes |
