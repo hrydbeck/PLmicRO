@@ -51,6 +51,7 @@ biologi  logi    sjukdomar
 | 📝 [Session Notes](notes) | Collaborative notes from each session |
 | 📖 [Glossary](glossary) | Key terms and definitions |
 | 🤖 [AI Primer](ai-intro) | Introduction to AI, LLMs & agents |
+| 🧬 [Metagenomics Intro](metagenomics-intro) | Introduction to metagenomics & taxonomic profiling |
 | 💡 [Suggest a Paper](suggest) | Propose new papers for the group |
 | 📚 [Zotero Library](zotero) | Join our shared library & share papers |
 | ❓ [How We Work](how-we-work) | What tools we use and why — the non-technical guide |

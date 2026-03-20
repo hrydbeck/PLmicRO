@@ -100,3 +100,21 @@ permalink: /reading-list.html
 - [ ] Session 10 completed
 - [ ] Session 11 completed
 - [ ] Session 12 completed
+
+---
+
+## Series 3: Metagenomics & Microbiome
+
+**→ [Read the introduction to this series](metagenomics-intro)**
+
+### Session 13 — Taxonomic Profiling Pipelines
+
+- [Stamouli S, Beber ME, Normark T, et al. (2023) — *nf-core/taxprofiler: highly parallelised and flexible pipeline for metagenomic taxonomic classification and profiling*](https://doi.org/10.1101/2023.10.20.563221), bioRxiv
+
+**Why this paper?** Introduces a Nextflow pipeline that runs 11 taxonomic classifiers in parallel on shotgun metagenomic data. Directly relevant to clinical microbiology workflows — pathogen detection, microbiome profiling, and outbreak investigation. A natural starting point for understanding the computational side of metagenomics.
+
+---
+
+## Series 3 Progress
+
+- [ ] Session 13 completed
